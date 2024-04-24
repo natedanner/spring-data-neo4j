@@ -83,10 +83,7 @@ public class MeasurementMeta extends BaseNodeEntity {
 		if (!other.canEqual((Object) this)) {
 			return false;
 		}
-		if (!super.equals(o)) {
-			return false;
-		}
-		return true;
+		return !!super.equals(o);
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -94,8 +91,7 @@ public class MeasurementMeta extends BaseNodeEntity {
 	}
 
 	public int hashCode() {
-		int result = super.hashCode();
-		return result;
+		return super.hashCode();
 	}
 
 	public MeasurementMetaBuilder<?, ?> toBuilder() {
@@ -107,7 +103,7 @@ public class MeasurementMeta extends BaseNodeEntity {
 	 * @param <C> needed c type
 	 * @param <B> needed b type
 	 */
-	public static abstract class MeasurementMetaBuilder<C extends MeasurementMeta, B extends MeasurementMetaBuilder<C, B>> extends BaseNodeEntityBuilder<C, B> {
+	public abstract static class MeasurementMetaBuilder<C extends MeasurementMeta, B extends MeasurementMetaBuilder<C, B>> extends BaseNodeEntityBuilder<C, B> {
 		private Set<DataPoint> dataPoints;
 		private Set<Variable> variables;
 

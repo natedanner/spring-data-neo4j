@@ -100,27 +100,24 @@ public final class DtoPersonProjectionContainingAdditionalFields {
 		}
 		final Object this$someDoubles = this.getSomeDoubles();
 		final Object other$someDoubles = other.getSomeDoubles();
-		if (this$someDoubles == null ? other$someDoubles != null : !this$someDoubles.equals(other$someDoubles)) {
-			return false;
-		}
-		return true;
+		return !(this$someDoubles == null ? other$someDoubles != null : !this$someDoubles.equals(other$someDoubles));
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $name = this.getName();
-		result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+		result = result * prime + ($name == null ? 43 : $name.hashCode());
 		final Object $sameValue = this.getSameValue();
-		result = result * PRIME + ($sameValue == null ? 43 : $sameValue.hashCode());
+		result = result * prime + ($sameValue == null ? 43 : $sameValue.hashCode());
 		final Object $firstName = this.getFirstName();
-		result = result * PRIME + ($firstName == null ? 43 : $firstName.hashCode());
+		result = result * prime + ($firstName == null ? 43 : $firstName.hashCode());
 		final Object $otherPeople = this.getOtherPeople();
-		result = result * PRIME + ($otherPeople == null ? 43 : $otherPeople.hashCode());
+		result = result * prime + ($otherPeople == null ? 43 : $otherPeople.hashCode());
 		final Object $someLongValue = this.getSomeLongValue();
-		result = result * PRIME + ($someLongValue == null ? 43 : $someLongValue.hashCode());
+		result = result * prime + ($someLongValue == null ? 43 : $someLongValue.hashCode());
 		final Object $someDoubles = this.getSomeDoubles();
-		result = result * PRIME + ($someDoubles == null ? 43 : $someDoubles.hashCode());
+		result = result * prime + ($someDoubles == null ? 43 : $someDoubles.hashCode());
 		return result;
 	}
 

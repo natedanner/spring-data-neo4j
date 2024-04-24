@@ -70,7 +70,7 @@ public interface ReactiveNeo4jClient {
 	 */
 	@API(status = API.Status.STABLE, since = "6.2")
 	@SuppressWarnings("HiddenField")
-	class Builder {
+	final class Builder {
 
 		final Driver driver;
 

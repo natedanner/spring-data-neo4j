@@ -392,7 +392,7 @@ class OptimisticLockingIT {
 		T entity = createInitialEntity.call();
 		long sleep = 4_000L;
 
-		executorService.execute(() -> {
+		executorService.execute(() ->
 			transactionTemplate.executeWithoutResult(tx -> {
 				updateEntity.accept(entity);
 				latch.countDown(); // Trigger the match below but keep tx running
@@ -401,8 +401,7 @@ class OptimisticLockingIT {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-			});
-		});
+			}));
 
 		latch.await(); // Wait until the above thread sleeps
 		assertThatExceptionOfType(OptimisticLockingFailureException.class).isThrownBy(() -> updateEntity.accept(entity));

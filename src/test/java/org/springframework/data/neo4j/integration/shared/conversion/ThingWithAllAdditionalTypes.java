@@ -41,7 +41,7 @@ import org.springframework.data.neo4j.core.schema.Node;
  */
 @SuppressWarnings("HiddenField")
 @Node("AdditionalTypes")
-public class ThingWithAllAdditionalTypes {
+public final class ThingWithAllAdditionalTypes {
 
 	private ThingWithAllAdditionalTypes(Long id, boolean[] booleanArray, byte aByte, char aChar, char[] charArray, Date aDate, BigDecimal aBigDecimal, BigInteger aBigInteger, double[] doubleArray, float aFloat, float[] floatArray, int anInt, int[] intArray, Locale aLocale, long[] longArray, short aShort, short[] shortArray, Period aPeriod, Duration aDuration, String[] stringArray, List<String> listOfStrings, Set<String> setOfStrings, Instant anInstant, UUID aUUID, URL aURL, URI aURI, SomeEnum anEnum, SomeEnum[] anArrayOfEnums, List<Double> listOfDoubles, List<SomeEnum> aCollectionOfEnums, TimeZone aTimeZone, ZoneId aZoneId, Period aZeroPeriod, Duration aZeroDuration) {
 		this.id = id;
@@ -502,10 +502,7 @@ public class ThingWithAllAdditionalTypes {
 		}
 		final Object this$aZeroDuration = this.getAZeroDuration();
 		final Object other$aZeroDuration = other.getAZeroDuration();
-		if (this$aZeroDuration == null ? other$aZeroDuration != null : !this$aZeroDuration.equals(other$aZeroDuration)) {
-			return false;
-		}
-		return true;
+		return !(this$aZeroDuration == null ? other$aZeroDuration != null : !this$aZeroDuration.equals(other$aZeroDuration));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -513,62 +510,62 @@ public class ThingWithAllAdditionalTypes {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
-		result = result * PRIME + java.util.Arrays.hashCode(this.getBooleanArray());
-		result = result * PRIME + this.getAByte();
-		result = result * PRIME + this.getAChar();
-		result = result * PRIME + java.util.Arrays.hashCode(this.getCharArray());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + java.util.Arrays.hashCode(this.getBooleanArray());
+		result = result * prime + this.getAByte();
+		result = result * prime + this.getAChar();
+		result = result * prime + java.util.Arrays.hashCode(this.getCharArray());
 		final Object $aDate = this.getADate();
-		result = result * PRIME + ($aDate == null ? 43 : $aDate.hashCode());
+		result = result * prime + ($aDate == null ? 43 : $aDate.hashCode());
 		final Object $aBigDecimal = this.getABigDecimal();
-		result = result * PRIME + ($aBigDecimal == null ? 43 : $aBigDecimal.hashCode());
+		result = result * prime + ($aBigDecimal == null ? 43 : $aBigDecimal.hashCode());
 		final Object $aBigInteger = this.getABigInteger();
-		result = result * PRIME + ($aBigInteger == null ? 43 : $aBigInteger.hashCode());
-		result = result * PRIME + java.util.Arrays.hashCode(this.getDoubleArray());
-		result = result * PRIME + Float.floatToIntBits(this.getAFloat());
-		result = result * PRIME + java.util.Arrays.hashCode(this.getFloatArray());
-		result = result * PRIME + this.getAnInt();
-		result = result * PRIME + java.util.Arrays.hashCode(this.getIntArray());
+		result = result * prime + ($aBigInteger == null ? 43 : $aBigInteger.hashCode());
+		result = result * prime + java.util.Arrays.hashCode(this.getDoubleArray());
+		result = result * prime + Float.floatToIntBits(this.getAFloat());
+		result = result * prime + java.util.Arrays.hashCode(this.getFloatArray());
+		result = result * prime + this.getAnInt();
+		result = result * prime + java.util.Arrays.hashCode(this.getIntArray());
 		final Object $aLocale = this.getALocale();
-		result = result * PRIME + ($aLocale == null ? 43 : $aLocale.hashCode());
-		result = result * PRIME + java.util.Arrays.hashCode(this.getLongArray());
-		result = result * PRIME + this.getAShort();
-		result = result * PRIME + java.util.Arrays.hashCode(this.getShortArray());
+		result = result * prime + ($aLocale == null ? 43 : $aLocale.hashCode());
+		result = result * prime + java.util.Arrays.hashCode(this.getLongArray());
+		result = result * prime + this.getAShort();
+		result = result * prime + java.util.Arrays.hashCode(this.getShortArray());
 		final Object $aPeriod = this.getAPeriod();
-		result = result * PRIME + ($aPeriod == null ? 43 : $aPeriod.hashCode());
+		result = result * prime + ($aPeriod == null ? 43 : $aPeriod.hashCode());
 		final Object $aDuration = this.getADuration();
-		result = result * PRIME + ($aDuration == null ? 43 : $aDuration.hashCode());
-		result = result * PRIME + java.util.Arrays.deepHashCode(this.getStringArray());
+		result = result * prime + ($aDuration == null ? 43 : $aDuration.hashCode());
+		result = result * prime + java.util.Arrays.deepHashCode(this.getStringArray());
 		final Object $listOfStrings = this.getListOfStrings();
-		result = result * PRIME + ($listOfStrings == null ? 43 : $listOfStrings.hashCode());
+		result = result * prime + ($listOfStrings == null ? 43 : $listOfStrings.hashCode());
 		final Object $setOfStrings = this.getSetOfStrings();
-		result = result * PRIME + ($setOfStrings == null ? 43 : $setOfStrings.hashCode());
+		result = result * prime + ($setOfStrings == null ? 43 : $setOfStrings.hashCode());
 		final Object $anInstant = this.getAnInstant();
-		result = result * PRIME + ($anInstant == null ? 43 : $anInstant.hashCode());
+		result = result * prime + ($anInstant == null ? 43 : $anInstant.hashCode());
 		final Object $aUUID = this.getAUUID();
-		result = result * PRIME + ($aUUID == null ? 43 : $aUUID.hashCode());
+		result = result * prime + ($aUUID == null ? 43 : $aUUID.hashCode());
 		final Object $aURL = this.getAURL();
-		result = result * PRIME + ($aURL == null ? 43 : $aURL.hashCode());
+		result = result * prime + ($aURL == null ? 43 : $aURL.hashCode());
 		final Object $aURI = this.getAURI();
-		result = result * PRIME + ($aURI == null ? 43 : $aURI.hashCode());
+		result = result * prime + ($aURI == null ? 43 : $aURI.hashCode());
 		final Object $anEnum = this.getAnEnum();
-		result = result * PRIME + ($anEnum == null ? 43 : $anEnum.hashCode());
-		result = result * PRIME + java.util.Arrays.deepHashCode(this.getAnArrayOfEnums());
+		result = result * prime + ($anEnum == null ? 43 : $anEnum.hashCode());
+		result = result * prime + java.util.Arrays.deepHashCode(this.getAnArrayOfEnums());
 		final Object $listOfDoubles = this.getListOfDoubles();
-		result = result * PRIME + ($listOfDoubles == null ? 43 : $listOfDoubles.hashCode());
+		result = result * prime + ($listOfDoubles == null ? 43 : $listOfDoubles.hashCode());
 		final Object $aCollectionOfEnums = this.getACollectionOfEnums();
-		result = result * PRIME + ($aCollectionOfEnums == null ? 43 : $aCollectionOfEnums.hashCode());
+		result = result * prime + ($aCollectionOfEnums == null ? 43 : $aCollectionOfEnums.hashCode());
 		final Object $aTimeZone = this.getATimeZone();
-		result = result * PRIME + ($aTimeZone == null ? 43 : $aTimeZone.hashCode());
+		result = result * prime + ($aTimeZone == null ? 43 : $aTimeZone.hashCode());
 		final Object $aZoneId = this.getAZoneId();
-		result = result * PRIME + ($aZoneId == null ? 43 : $aZoneId.hashCode());
+		result = result * prime + ($aZoneId == null ? 43 : $aZoneId.hashCode());
 		final Object $aZeroPeriod = this.getAZeroPeriod();
-		result = result * PRIME + ($aZeroPeriod == null ? 43 : $aZeroPeriod.hashCode());
+		result = result * prime + ($aZeroPeriod == null ? 43 : $aZeroPeriod.hashCode());
 		final Object $aZeroDuration = this.getAZeroDuration();
-		result = result * PRIME + ($aZeroDuration == null ? 43 : $aZeroDuration.hashCode());
+		result = result * prime + ($aZeroDuration == null ? 43 : $aZeroDuration.hashCode());
 		return result;
 	}
 

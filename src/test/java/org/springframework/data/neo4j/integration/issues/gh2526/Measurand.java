@@ -48,17 +48,14 @@ public final class Measurand {
 		final Measurand other = (Measurand) o;
 		final Object this$measurandId = this.getMeasurandId();
 		final Object other$measurandId = other.getMeasurandId();
-		if (this$measurandId == null ? other$measurandId != null : !this$measurandId.equals(other$measurandId)) {
-			return false;
-		}
-		return true;
+		return !(this$measurandId == null ? other$measurandId != null : !this$measurandId.equals(other$measurandId));
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $measurandId = this.getMeasurandId();
-		result = result * PRIME + ($measurandId == null ? 43 : $measurandId.hashCode());
+		result = result * prime + ($measurandId == null ? 43 : $measurandId.hashCode());
 		return result;
 	}
 

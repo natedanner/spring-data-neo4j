@@ -84,10 +84,7 @@ public class JobRelationship {
 		}
 		final Object this$jobTitle = this.getJobTitle();
 		final Object other$jobTitle = other.getJobTitle();
-		if (this$jobTitle == null ? other$jobTitle != null : !this$jobTitle.equals(other$jobTitle)) {
-			return false;
-		}
-		return true;
+		return !(this$jobTitle == null ? other$jobTitle != null : !this$jobTitle.equals(other$jobTitle));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -95,14 +92,14 @@ public class JobRelationship {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		final Object $person = this.getPerson();
-		result = result * PRIME + ($person == null ? 43 : $person.hashCode());
+		result = result * prime + ($person == null ? 43 : $person.hashCode());
 		final Object $jobTitle = this.getJobTitle();
-		result = result * PRIME + ($jobTitle == null ? 43 : $jobTitle.hashCode());
+		result = result * prime + ($jobTitle == null ? 43 : $jobTitle.hashCode());
 		return result;
 	}
 

@@ -191,10 +191,7 @@ public class PersonWithAllConstructor {
 		}
 		final Object this$createdAt = this.getCreatedAt();
 		final Object other$createdAt = other.getCreatedAt();
-		if (this$createdAt == null ? other$createdAt != null : !this$createdAt.equals(other$createdAt)) {
-			return false;
-		}
-		return true;
+		return !(this$createdAt == null ? other$createdAt != null : !this$createdAt.equals(other$createdAt));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -202,30 +199,30 @@ public class PersonWithAllConstructor {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		final Object $name = this.getName();
-		result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+		result = result * prime + ($name == null ? 43 : $name.hashCode());
 		final Object $firstName = this.getFirstName();
-		result = result * PRIME + ($firstName == null ? 43 : $firstName.hashCode());
+		result = result * prime + ($firstName == null ? 43 : $firstName.hashCode());
 		final Object $sameValue = this.getSameValue();
-		result = result * PRIME + ($sameValue == null ? 43 : $sameValue.hashCode());
+		result = result * prime + ($sameValue == null ? 43 : $sameValue.hashCode());
 		final Object $cool = this.getCool();
-		result = result * PRIME + ($cool == null ? 43 : $cool.hashCode());
+		result = result * prime + ($cool == null ? 43 : $cool.hashCode());
 		final Object $personNumber = this.getPersonNumber();
-		result = result * PRIME + ($personNumber == null ? 43 : $personNumber.hashCode());
+		result = result * prime + ($personNumber == null ? 43 : $personNumber.hashCode());
 		final Object $bornOn = this.getBornOn();
-		result = result * PRIME + ($bornOn == null ? 43 : $bornOn.hashCode());
+		result = result * prime + ($bornOn == null ? 43 : $bornOn.hashCode());
 		final Object $nullable = this.getNullable();
-		result = result * PRIME + ($nullable == null ? 43 : $nullable.hashCode());
+		result = result * prime + ($nullable == null ? 43 : $nullable.hashCode());
 		final Object $things = this.getThings();
-		result = result * PRIME + ($things == null ? 43 : $things.hashCode());
+		result = result * prime + ($things == null ? 43 : $things.hashCode());
 		final Object $place = this.getPlace();
-		result = result * PRIME + ($place == null ? 43 : $place.hashCode());
+		result = result * prime + ($place == null ? 43 : $place.hashCode());
 		final Object $createdAt = this.getCreatedAt();
-		result = result * PRIME + ($createdAt == null ? 43 : $createdAt.hashCode());
+		result = result * prime + ($createdAt == null ? 43 : $createdAt.hashCode());
 		return result;
 	}
 

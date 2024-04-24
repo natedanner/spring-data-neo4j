@@ -228,7 +228,7 @@ abstract class Neo4jQuerySupport {
 
 		String query;
 
-		private boolean hasLiteralReplacementForSort = false;
+		private boolean hasLiteralReplacementForSort;
 
 		QueryContext(String repositoryMethodName, String template, Map<String, Object> boundParameters) {
 			this.repositoryMethodName = repositoryMethodName;
@@ -361,11 +361,11 @@ abstract class Neo4jQuerySupport {
 	private static double calculateDistanceInMeter(Distance distance) {
 
 		if (distance.getMetric() == Metrics.KILOMETERS) {
-			double kilometersDivisor = 0.001d;
+			double kilometersDivisor = 0.001D;
 			return distance.getValue() / kilometersDivisor;
 
 		} else if (distance.getMetric() == Metrics.MILES) {
-			double milesDivisor = 0.00062137d;
+			double milesDivisor = 0.00062137D;
 			return distance.getValue() / milesDivisor;
 
 		} else {

@@ -57,10 +57,7 @@ public class Neo4jObject {
 		}
 		final Object this$id = this.getId();
 		final Object other$id = other.getId();
-		if (this$id == null ? other$id != null : !this$id.equals(other$id)) {
-			return false;
-		}
-		return true;
+		return !(this$id == null ? other$id != null : !this$id.equals(other$id));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -68,10 +65,10 @@ public class Neo4jObject {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		return result;
 	}
 

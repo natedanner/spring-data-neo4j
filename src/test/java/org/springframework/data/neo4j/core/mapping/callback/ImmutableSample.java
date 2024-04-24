@@ -77,21 +77,18 @@ public final class ImmutableSample {
 		}
 		final Object this$modified = this.getModified();
 		final Object other$modified = other.getModified();
-		if (this$modified == null ? other$modified != null : !this$modified.equals(other$modified)) {
-			return false;
-		}
-		return true;
+		return !(this$modified == null ? other$modified != null : !this$modified.equals(other$modified));
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		final Object $created = this.getCreated();
-		result = result * PRIME + ($created == null ? 43 : $created.hashCode());
+		result = result * prime + ($created == null ? 43 : $created.hashCode());
 		final Object $modified = this.getModified();
-		result = result * PRIME + ($modified == null ? 43 : $modified.hashCode());
+		result = result * prime + ($modified == null ? 43 : $modified.hashCode());
 		return result;
 	}
 

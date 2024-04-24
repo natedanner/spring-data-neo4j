@@ -33,7 +33,7 @@ import org.springframework.data.neo4j.core.schema.TargetNode;
 @API(status = API.Status.INTERNAL, since = "6.3")
 public final class AssociationHandlerSupport {
 
-	private final static Map<Neo4jPersistentEntity<?>, AssociationHandlerSupport> CACHE = new ConcurrentHashMap<>();
+	private static final Map<Neo4jPersistentEntity<?>, AssociationHandlerSupport> CACHE = new ConcurrentHashMap<>();
 
 	public static AssociationHandlerSupport of(Neo4jPersistentEntity<?> entity) {
 		return CACHE.computeIfAbsent(entity, AssociationHandlerSupport::new);

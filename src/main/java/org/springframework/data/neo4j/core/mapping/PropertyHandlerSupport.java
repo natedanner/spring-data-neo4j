@@ -34,7 +34,7 @@ import org.springframework.data.neo4j.core.schema.TargetNode;
 @API(status = API.Status.INTERNAL, since = "6.3")
 public final class PropertyHandlerSupport {
 
-	private final static Map<Neo4jPersistentEntity<?>, PropertyHandlerSupport> CACHE = new ConcurrentHashMap<>();
+	private static final Map<Neo4jPersistentEntity<?>, PropertyHandlerSupport> CACHE = new ConcurrentHashMap<>();
 
 	public static PropertyHandlerSupport of(Neo4jPersistentEntity<?> entity) {
 		return CACHE.computeIfAbsent(entity, PropertyHandlerSupport::new);

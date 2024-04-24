@@ -173,7 +173,7 @@ class ReactiveScrollingIT {
 					.extracting(ScrollingEntity::getA)
 					.containsExactly("F0", "G0", "H0", "I0");
 
-			var pos = ((KeysetScrollPosition) window.positionAt(0));
+			var pos = (KeysetScrollPosition) window.positionAt(0);
 			pos = ScrollPosition.backward(pos.getKeys());
 			repository.findTop4By(ScrollingEntity.SORT_BY_B_AND_A, pos)
 					.as(StepVerifier::create)
@@ -187,7 +187,7 @@ class ReactiveScrollingIT {
 					.extracting(ScrollingEntity::getA)
 					.containsExactly("C0", "D0", "D0", "E0");
 
-			pos = ((KeysetScrollPosition) window.positionAt(0));
+			pos = (KeysetScrollPosition) window.positionAt(0);
 			pos = ScrollPosition.backward(pos.getKeys());
 			repository.findTop4By(ScrollingEntity.SORT_BY_B_AND_A, pos)
 					.as(StepVerifier::create)

@@ -54,7 +54,7 @@ import static org.neo4j.cypherdsl.core.Cypher.parameter;
  */
 @API(status = API.Status.INTERNAL, since = "6.0.4")
 public final class QueryFragmentsAndParameters {
-	private final static CypherGenerator cypherGenerator = CypherGenerator.INSTANCE;
+	private static final CypherGenerator cypherGenerator = CypherGenerator.INSTANCE;
 	private Map<String, Object> parameters;
 	private NodeDescription<?> nodeDescription;
 	private final QueryFragments queryFragments;

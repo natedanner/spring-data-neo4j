@@ -466,7 +466,7 @@ final class DefaultNeo4jEntityConverter implements Neo4jEntityConverter {
 			Collection<String> surplusLabels, @Nullable Object lastMappedEntity,
 			Collection<Relationship> relationshipsFromResult, Collection<Node> nodesFromResult) {
 
-		ParameterValueProvider<Neo4jPersistentProperty> parameterValueProvider = new ParameterValueProvider<Neo4jPersistentProperty>() {
+		ParameterValueProvider<Neo4jPersistentProperty> parameterValueProvider = new ParameterValueProvider<>() {
 
 			@SuppressWarnings("unchecked") // Needed for the last cast. It's easier that way than using the parameter type info and checking for primitives
 			@Override
@@ -700,7 +700,7 @@ final class DefaultNeo4jEntityConverter implements Neo4jEntityConverter {
 			// Retrieve all matching relationships from the result's list(s)
 			Collection<Relationship> allMatchingTypeRelationshipsInResult =
 					extractMatchingRelationships(relationshipsFromResult, relationshipDescription, typeOfRelationship,
-							(possibleRelationship) -> sourceIdSelector.apply(possibleRelationship).equals(sourceNodeId));
+							possibleRelationship -> sourceIdSelector.apply(possibleRelationship).equals(sourceNodeId));
 
 			// Fast exit if there is no relationship that can be mapped
 			if (!allMatchingTypeRelationshipsInResult.isEmpty()) {
@@ -825,7 +825,7 @@ final class DefaultNeo4jEntityConverter implements Neo4jEntityConverter {
 
 	private Collection<Node> extractMatchingNodes(Collection<Node> allNodesInResult, String targetLabel) {
 
-		return labelNodeCache.computeIfAbsent(targetLabel, (label) -> {
+		return labelNodeCache.computeIfAbsent(targetLabel, label -> {
 
 			Predicate<Node> onlyWithMatchingLabels = n -> n.hasLabel(label);
 			return allNodesInResult.stream()

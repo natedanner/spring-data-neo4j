@@ -66,10 +66,7 @@ public class SameIdProperty {
 			}
 			final Object this$code = this.getCode();
 			final Object other$code = other.getCode();
-			if (this$code == null ? other$code != null : !this$code.equals(other$code)) {
-				return false;
-			}
-			return true;
+			return !(this$code == null ? other$code != null : !this$code.equals(other$code));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -77,10 +74,10 @@ public class SameIdProperty {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $code = this.getCode();
-			result = result * PRIME + ($code == null ? 43 : $code.hashCode());
+			result = result * prime + ($code == null ? 43 : $code.hashCode());
 			return result;
 		}
 
@@ -146,10 +143,7 @@ public class SameIdProperty {
 			}
 			final Object this$routes = this.getRoutes();
 			final Object other$routes = other.getRoutes();
-			if (this$routes == null ? other$routes != null : !this$routes.equals(other$routes)) {
-				return false;
-			}
-			return true;
+			return !(this$routes == null ? other$routes != null : !this$routes.equals(other$routes));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -157,12 +151,12 @@ public class SameIdProperty {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $code = this.getCode();
-			result = result * PRIME + ($code == null ? 43 : $code.hashCode());
+			result = result * prime + ($code == null ? 43 : $code.hashCode());
 			final Object $routes = this.getRoutes();
-			result = result * PRIME + ($routes == null ? 43 : $routes.hashCode());
+			result = result * prime + ($routes == null ? 43 : $routes.hashCode());
 			return result;
 		}
 
@@ -232,10 +226,7 @@ public class SameIdProperty {
 			}
 			final Object this$routes = this.getRoutes();
 			final Object other$routes = other.getRoutes();
-			if (this$routes == null ? other$routes != null : !this$routes.equals(other$routes)) {
-				return false;
-			}
-			return true;
+			return !(this$routes == null ? other$routes != null : !this$routes.equals(other$routes));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -243,12 +234,12 @@ public class SameIdProperty {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $code = this.getCode();
-			result = result * PRIME + ($code == null ? 43 : $code.hashCode());
+			result = result * prime + ($code == null ? 43 : $code.hashCode());
 			final Object $routes = this.getRoutes();
-			result = result * PRIME + ($routes == null ? 43 : $routes.hashCode());
+			result = result * prime + ($routes == null ? 43 : $routes.hashCode());
 			return result;
 		}
 
@@ -444,10 +435,7 @@ public class SameIdProperty {
 			}
 			final Object this$pod = this.getPod();
 			final Object other$pod = other.getPod();
-			if (this$pod == null ? other$pod != null : !this$pod.equals(other$pod)) {
-				return false;
-			}
-			return true;
+			return !(this$pod == null ? other$pod != null : !this$pod.equals(other$pod));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -455,28 +443,28 @@ public class SameIdProperty {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $id = this.getId();
-			result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+			result = result * prime + ($id == null ? 43 : $id.hashCode());
 			final Object $truck = this.getTruck();
-			result = result * PRIME + ($truck == null ? 43 : $truck.hashCode());
+			result = result * prime + ($truck == null ? 43 : $truck.hashCode());
 			final Object $truckCurrency = this.getTruckCurrency();
-			result = result * PRIME + ($truckCurrency == null ? 43 : $truckCurrency.hashCode());
+			result = result * prime + ($truckCurrency == null ? 43 : $truckCurrency.hashCode());
 			final Object $ft20 = this.getFt20();
-			result = result * PRIME + ($ft20 == null ? 43 : $ft20.hashCode());
+			result = result * prime + ($ft20 == null ? 43 : $ft20.hashCode());
 			final Object $ft20Currency = this.getFt20Currency();
-			result = result * PRIME + ($ft20Currency == null ? 43 : $ft20Currency.hashCode());
+			result = result * prime + ($ft20Currency == null ? 43 : $ft20Currency.hashCode());
 			final Object $ft40 = this.getFt40();
-			result = result * PRIME + ($ft40 == null ? 43 : $ft40.hashCode());
+			result = result * prime + ($ft40 == null ? 43 : $ft40.hashCode());
 			final Object $ft40Currency = this.getFt40Currency();
-			result = result * PRIME + ($ft40Currency == null ? 43 : $ft40Currency.hashCode());
+			result = result * prime + ($ft40Currency == null ? 43 : $ft40Currency.hashCode());
 			final Object $ft40HC = this.getFt40HC();
-			result = result * PRIME + ($ft40HC == null ? 43 : $ft40HC.hashCode());
+			result = result * prime + ($ft40HC == null ? 43 : $ft40HC.hashCode());
 			final Object $ft40HCCurrency = this.getFt40HCCurrency();
-			result = result * PRIME + ($ft40HCCurrency == null ? 43 : $ft40HCCurrency.hashCode());
+			result = result * prime + ($ft40HCCurrency == null ? 43 : $ft40HCCurrency.hashCode());
 			final Object $pod = this.getPod();
-			result = result * PRIME + ($pod == null ? 43 : $pod.hashCode());
+			result = result * prime + ($pod == null ? 43 : $pod.hashCode());
 			return result;
 		}
 

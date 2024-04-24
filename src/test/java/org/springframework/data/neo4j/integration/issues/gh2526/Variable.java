@@ -96,21 +96,18 @@ public final class Variable {
 		}
 		final Object this$variable = this.getVariable();
 		final Object other$variable = other.getVariable();
-		if (this$variable == null ? other$variable != null : !this$variable.equals(other$variable)) {
-			return false;
-		}
-		return true;
+		return !(this$variable == null ? other$variable != null : !this$variable.equals(other$variable));
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		final Object $measurement = this.getMeasurement();
-		result = result * PRIME + ($measurement == null ? 43 : $measurement.hashCode());
+		result = result * prime + ($measurement == null ? 43 : $measurement.hashCode());
 		final Object $variable = this.getVariable();
-		result = result * PRIME + ($variable == null ? 43 : $variable.hashCode());
+		result = result * prime + ($variable == null ? 43 : $variable.hashCode());
 		return result;
 	}
 }

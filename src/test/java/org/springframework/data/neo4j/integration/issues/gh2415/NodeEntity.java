@@ -81,10 +81,7 @@ public class NodeEntity extends BaseNodeEntity implements NodeWithDefinedCredent
 		if (!other.canEqual((Object) this)) {
 			return false;
 		}
-		if (!super.equals(o)) {
-			return false;
-		}
-		return true;
+		return !!super.equals(o);
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -92,8 +89,7 @@ public class NodeEntity extends BaseNodeEntity implements NodeWithDefinedCredent
 	}
 
 	public int hashCode() {
-		int result = super.hashCode();
-		return result;
+		return super.hashCode();
 	}
 
 	public NodeEntityBuilder<?, ?> toBuilder() {
@@ -105,7 +101,7 @@ public class NodeEntity extends BaseNodeEntity implements NodeWithDefinedCredent
 	 * @param <C> needed c type
 	 * @param <B> needed b type
 	 */
-	public static abstract class NodeEntityBuilder<C extends NodeEntity, B extends NodeEntityBuilder<C, B>> extends BaseNodeEntityBuilder<C, B> {
+	public abstract static class NodeEntityBuilder<C extends NodeEntity, B extends NodeEntityBuilder<C, B>> extends BaseNodeEntityBuilder<C, B> {
 		private Set<BaseNodeEntity> children;
 		private Set<Credential> definedCredentials;
 

@@ -152,8 +152,8 @@ class PropertyTraverserTest {
 		PropertyTraverser traverser = new PropertyTraverser(this.ctx);
 		Map<String, Boolean> includedProperties = new TreeMap<>();
 		traverser.traverse(Movie.class,
-				(path, property) -> property.getName().equals("directors") || (path.toDotPath().startsWith("directors.")
-																			   && property.getName().equals("name")),
+				(path, property) -> "directors".equals(property.getName()) || (path.toDotPath().startsWith("directors.")
+																			   && "name".equals(property.getName())),
 				(path, property) -> includedProperties.put(path.toString(), property.isAssociation()));
 
 		Map<String, Boolean> expected = new LinkedHashMap<>();

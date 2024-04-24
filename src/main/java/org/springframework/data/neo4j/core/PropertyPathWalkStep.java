@@ -22,7 +22,7 @@ import org.apiguardian.api.API;
  * Returns new instances on modification and hides the ugly empty String.
  */
 @API(status = API.Status.INTERNAL)
-class PropertyPathWalkStep {
+final class PropertyPathWalkStep {
 
 	final String path;
 

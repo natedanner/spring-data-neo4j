@@ -116,9 +116,8 @@ public class ReactiveImmutableExternallyGeneratedIdsIT {
 		ImmutablePersonWithExternallyGeneratedId person = ImmutablePersonWithExternallyGeneratedId.wasOnboardedBy(Collections.singletonList(onboarder));
 
 		StepVerifier.create(repository.saveAll(Collections.singleton(person)))
-				.assertNext(savedPerson -> {
-					assertThat(savedPerson.wasOnboardedBy.get(0).id).isNotNull();
-				})
+				.assertNext(savedPerson ->
+					assertThat(savedPerson.wasOnboardedBy.get(0).id).isNotNull())
 				.verifyComplete();
 	}
 
@@ -130,9 +129,8 @@ public class ReactiveImmutableExternallyGeneratedIdsIT {
 		ImmutablePersonWithExternallyGeneratedId person = ImmutablePersonWithExternallyGeneratedId.knownBy(Collections.singleton(knowingPerson));
 
 		StepVerifier.create(repository.saveAll(Collections.singleton(person)))
-				.assertNext(savedPerson -> {
-					assertThat(savedPerson.knownBy.iterator().next().id).isNotNull();
-				})
+				.assertNext(savedPerson ->
+					assertThat(savedPerson.knownBy.iterator().next().id).isNotNull())
 				.verifyComplete();
 	}
 
@@ -179,9 +177,8 @@ public class ReactiveImmutableExternallyGeneratedIdsIT {
 		ImmutablePersonWithExternallyGeneratedId person = ImmutablePersonWithExternallyGeneratedId.ratedByCollection(Collections.singletonMap("Good", Collections.singletonList(rater)));
 
 		StepVerifier.create(repository.saveAll(Collections.singleton(person)))
-				.assertNext(savedPerson -> {
-					assertThat(savedPerson.ratedByCollection.values().iterator().next().get(0).id).isNotNull();
-				})
+				.assertNext(savedPerson ->
+					assertThat(savedPerson.ratedByCollection.values().iterator().next().get(0).id).isNotNull())
 				.verifyComplete();
 	}
 

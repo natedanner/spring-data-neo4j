@@ -105,7 +105,7 @@ class ReactiveNeo4jTemplateIT {
 
 		try (
 				Session session = driver.session(bookmarkCapture.createSessionConfig());
-				Transaction transaction = session.beginTransaction();
+				Transaction transaction = session.beginTransaction()
 		) {
 			transaction.run("MATCH (n) detach delete n");
 
@@ -364,11 +364,11 @@ class ReactiveNeo4jTemplateIT {
 
 	private static BiPredicate<PropertyPath, Neo4jPersistentProperty> create2LevelProjectingPredicate() {
 		BiPredicate<PropertyPath, Neo4jPersistentProperty> predicate = (path, property) -> false;
-		predicate = predicate.or((path, property) -> property.getName().equals("lastName"));
-		predicate = predicate.or((path, property) -> property.getName().equals("address")
-				|| path.toDotPath().startsWith("address.") && property.getName().equals("street"));
-		predicate = predicate.or((path, property) -> property.getName().equals("country")
-				|| path.toDotPath().contains("address.country.") && property.getName().equals("name"));
+		predicate = predicate.or((path, property) -> "lastName".equals(property.getName()));
+		predicate = predicate.or((path, property) -> "address".equals(property.getName())
+				|| path.toDotPath().startsWith("address.") && "street".equals(property.getName()));
+		predicate = predicate.or((path, property) -> "country".equals(property.getName())
+				|| path.toDotPath().contains("address.country.") && "name".equals(property.getName()));
 		return predicate;
 	}
 
@@ -429,10 +429,7 @@ class ReactiveNeo4jTemplateIT {
 			}
 			final Object this$firstName = this.getFirstName();
 			final Object other$firstName = other.getFirstName();
-			if (this$firstName == null ? other$firstName != null : !this$firstName.equals(other$firstName)) {
-				return false;
-			}
-			return true;
+			return !(this$firstName == null ? other$firstName != null : !this$firstName.equals(other$firstName));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -440,14 +437,14 @@ class ReactiveNeo4jTemplateIT {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $id = this.getId();
-			result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+			result = result * prime + ($id == null ? 43 : $id.hashCode());
 			final Object $lastName = this.getLastName();
-			result = result * PRIME + ($lastName == null ? 43 : $lastName.hashCode());
+			result = result * prime + ($lastName == null ? 43 : $lastName.hashCode());
 			final Object $firstName = this.getFirstName();
-			result = result * PRIME + ($firstName == null ? 43 : $firstName.hashCode());
+			result = result * prime + ($firstName == null ? 43 : $firstName.hashCode());
 			return result;
 		}
 
@@ -502,7 +499,7 @@ class ReactiveNeo4jTemplateIT {
 				.flatMap(savedProjection -> template.findById(savedProjection.getId(), Person.class))
 				.as(StepVerifier::create)
 				.expectNextMatches(
-						person -> person.getFirstName().equals("Micha") && person.getLastName().equals("Simons")
+						person -> "Micha".equals(person.getFirstName()) && "Simons".equals(person.getLastName())
 								&& person.getAddress() != null)
 				.verifyComplete();
 	}
@@ -528,7 +525,7 @@ class ReactiveNeo4jTemplateIT {
 				.flatMap(savedProjection -> template.findById(savedProjection.getId(), Person.class))
 				.as(StepVerifier::create)
 				.expectNextMatches(
-						person -> person.getFirstName().equals("Micha") && person.getLastName().equals("Simons")
+						person -> "Micha".equals(person.getFirstName()) && "Simons".equals(person.getLastName())
 								&& person.getAddress() != null)
 				.verifyComplete();
 	}
@@ -668,9 +665,8 @@ class ReactiveNeo4jTemplateIT {
 					return neo4jTemplate.saveAs(p, ClosedProjectionWithEmbeddedProjection.class);
 				})
 				.as(StepVerifier::create)
-				.assertNext(projection -> {
-					assertThat(projection.getAddress().getStreet()).isEqualTo("Single Trail");
-				})
+				.assertNext(projection ->
+					assertThat(projection.getAddress().getStreet()).isEqualTo("Single Trail"))
 				.verifyComplete();
 		template.findById(simonsId, Person.class)
 				.as(StepVerifier::create)
@@ -698,9 +694,8 @@ class ReactiveNeo4jTemplateIT {
 					return neo4jTemplate.saveAs(p, create2LevelProjectingPredicate());
 				})
 				.as(StepVerifier::create)
-				.assertNext(projection -> {
-					assertThat(projection.getAddress().getStreet()).isEqualTo("Single Trail");
-				})
+				.assertNext(projection ->
+					assertThat(projection.getAddress().getStreet()).isEqualTo("Single Trail"))
 				.verifyComplete();
 		template.findById(simonsId, Person.class)
 				.as(StepVerifier::create)
@@ -729,9 +724,8 @@ class ReactiveNeo4jTemplateIT {
 					return neo4jTemplate.saveAllAs(Collections.singletonList(p), create2LevelProjectingPredicate());
 				})
 				.as(StepVerifier::create)
-				.assertNext(projection -> {
-					assertThat(projection.getAddress().getStreet()).isEqualTo("Single Trail");
-				})
+				.assertNext(projection ->
+					assertThat(projection.getAddress().getStreet()).isEqualTo("Single Trail"))
 				.verifyComplete();
 		template.findById(simonsId, Person.class)
 				.as(StepVerifier::create)
@@ -794,7 +788,7 @@ class ReactiveNeo4jTemplateIT {
 
 		template.saveAllAs(things, ClosedProjection.class)
 				.as(StepVerifier::create)
-				.verifyErrorMatches(t -> t instanceof IllegalArgumentException && t.getMessage().equals("Could not determine a common element of an heterogeneous collection"));
+				.verifyErrorMatches(t -> t instanceof IllegalArgumentException && "Could not determine a common element of an heterogeneous collection".equals(t.getMessage()));
 	}
 
 	@Test

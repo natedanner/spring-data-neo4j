@@ -173,7 +173,7 @@ class Neo4jMappingContextTest {
 
 		Neo4jMappingContext schema = new Neo4jMappingContext();
 		schema.setInitialEntitySet(new HashSet<>(Arrays.asList(InvalidId.class)));
-		assertThatIllegalArgumentException().isThrownBy(() -> schema.initialize())
+		assertThatIllegalArgumentException().isThrownBy(schema::initialize)
 				.withMessageMatching("Cannot use internal id strategy with custom property getMappingFunctionFor on entity .*");
 	}
 
@@ -269,9 +269,8 @@ class Neo4jMappingContextTest {
 		assertThat(userNodeEntity.getPersistentProperty("anAnnotatedTransientProperty")).isNull();
 
 		List<String> associations = new ArrayList<>();
-		userNodeEntity.doWithAssociations((Association<Neo4jPersistentProperty> a) -> {
-			associations.add(a.getInverse().getFieldName());
-		});
+		userNodeEntity.doWithAssociations((Association<Neo4jPersistentProperty> a) ->
+			associations.add(a.getInverse().getFieldName()));
 
 		assertThat(associations).containsOnly("bikes", "theSuperBike");
 	}
@@ -503,7 +502,7 @@ class Neo4jMappingContextTest {
 
 		Neo4jMappingContext schema = new Neo4jMappingContext();
 		Neo4jPersistentEntity<?> entity = schema.getPersistentEntity(UserNode.class);
-		assertThat(entity.getRelationships()).anyMatch(r -> r.getFieldName().equals("theSuperBike") && r.getType().equals("THE_SUPER_BIKE"));
+		assertThat(entity.getRelationships()).anyMatch(r -> "theSuperBike".equals(r.getFieldName()) && "THE_SUPER_BIKE".equals(r.getType()));
 	}
 
 	@Test // COMMONS-2390
@@ -600,7 +599,7 @@ class Neo4jMappingContextTest {
 
 	private static Set<Class<?>> scanAndShuffle(String basePackage) throws ClassNotFoundException {
 
-		Comparator<Class<?>> pseudoRandomComparator = new Comparator<Class<?>>() {
+		Comparator<Class<?>> pseudoRandomComparator = new Comparator<>() {
 			private final Map<Object, UUID> uniqueIds = new IdentityHashMap<>();
 
 			@Override
@@ -639,9 +638,9 @@ class Neo4jMappingContextTest {
 
 		Neo4jMappingContext neo4jMappingContext1 = Neo4jMappingContext.builder().withPersistentPropertyCharacteristicsProvider((property, owner) -> {
 			if (owner.getUnderlyingClass().equals(UserNode.class)) {
-				if (property.getName().equals("name")) {
+				if ("name".equals(property.getName())) {
 					return PersistentPropertyCharacteristics.treatAsTransient();
-				} else if (property.getName().equals("first_name")) {
+				} else if ("first_name".equals(property.getName())) {
 					return PersistentPropertyCharacteristics.treatAsReadOnly();
 				}
 			}
@@ -1099,7 +1098,7 @@ class Neo4jMappingContextTest {
 		public T target;
 	}
 
-	public static abstract class RelationshipPropertiesAbstractClass extends RelationshipPropertiesBaseClass<ConcreteEntity> {
+	public abstract static class RelationshipPropertiesAbstractClass extends RelationshipPropertiesBaseClass<ConcreteEntity> {
 
 	}
 

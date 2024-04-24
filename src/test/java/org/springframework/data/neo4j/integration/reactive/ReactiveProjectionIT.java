@@ -231,9 +231,8 @@ class ReactiveProjectionIT {
 	void findByIdWithProjectionShouldWork(@Autowired TreestructureRepository repository) {
 
 		StepVerifier.create(repository.findById(projectionTestRootId, SimpleProjection.class))
-				.assertNext(projection -> {
-					assertThat(projection.getName()).isEqualTo("root");
-				})
+				.assertNext(projection ->
+					assertThat(projection.getName()).isEqualTo("root"))
 				.verifyComplete();
 	}
 

@@ -114,7 +114,7 @@ class ExceptionTranslationIT {
 		ResultSummary summary = customDAO.createPerson();
 		assertThat(summary.counters().nodesCreated()).isEqualTo(1L);
 
-		assertThatExceptionOfType(DataIntegrityViolationException.class).isThrownBy(() -> customDAO.createPerson())
+		assertThatExceptionOfType(DataIntegrityViolationException.class).isThrownBy(customDAO::createPerson)
 				.withMessageMatching(
 						"Node\\(\\d+\\) already exists with label `SimplePerson` and property `name` = '[\\w\\s]+'; Error code 'Neo.ClientError.Schema.ConstraintValidationFailed';.*");
 	}

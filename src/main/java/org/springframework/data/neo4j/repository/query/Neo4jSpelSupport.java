@@ -139,7 +139,7 @@ public final class Neo4jSpelSupport {
 		Target getTarget();
 	}
 
-	private static class StringBasedLiteralReplacement implements LiteralReplacement {
+	private static final class StringBasedLiteralReplacement implements LiteralReplacement {
 
 		/**
 		 * Default number of cached instances.

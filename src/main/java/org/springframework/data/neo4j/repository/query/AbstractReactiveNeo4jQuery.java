@@ -50,7 +50,7 @@ import reactor.core.publisher.Flux;
 abstract class AbstractReactiveNeo4jQuery extends Neo4jQuerySupport implements RepositoryQuery {
 
 	protected final ReactiveNeo4jOperations neo4jOperations;
-	private ProjectionFactory factory;
+	private final ProjectionFactory factory;
 
 	AbstractReactiveNeo4jQuery(ReactiveNeo4jOperations neo4jOperations, Neo4jMappingContext mappingContext,
 							   Neo4jQueryMethod queryMethod, Neo4jQueryType queryType, ProjectionFactory factory) {

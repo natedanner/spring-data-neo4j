@@ -115,10 +115,7 @@ public class RangeRelationRO {
 		}
 		final Object this$targetSku = this.getTargetSku();
 		final Object other$targetSku = other.getTargetSku();
-		if (this$targetSku == null ? other$targetSku != null : !this$targetSku.equals(other$targetSku)) {
-			return false;
-		}
-		return true;
+		return !(this$targetSku == null ? other$targetSku != null : !this$targetSku.equals(other$targetSku));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -126,18 +123,18 @@ public class RangeRelationRO {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		final long $minDelta = Double.doubleToLongBits(this.getMinDelta());
-		result = result * PRIME + (int) ($minDelta >>> 32 ^ $minDelta);
+		result = result * prime + (int) ($minDelta >>> 32 ^ $minDelta);
 		final long $maxDelta = Double.doubleToLongBits(this.getMaxDelta());
-		result = result * PRIME + (int) ($maxDelta >>> 32 ^ $maxDelta);
+		result = result * prime + (int) ($maxDelta >>> 32 ^ $maxDelta);
 		final Object $relationType = this.getRelationType();
-		result = result * PRIME + ($relationType == null ? 43 : $relationType.hashCode());
+		result = result * prime + ($relationType == null ? 43 : $relationType.hashCode());
 		final Object $targetSku = this.getTargetSku();
-		result = result * PRIME + ($targetSku == null ? 43 : $targetSku.hashCode());
+		result = result * prime + ($targetSku == null ? 43 : $targetSku.hashCode());
 		return result;
 	}
 

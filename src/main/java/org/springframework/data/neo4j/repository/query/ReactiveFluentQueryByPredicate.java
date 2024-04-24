@@ -173,10 +173,7 @@ import com.querydsl.core.types.Predicate;
 								createIncludedFieldsPredicate()))
 				.all();
 
-		return results.collectList().zipWith(countOperation.apply(predicate)).map(tuple -> {
-			Page<R> page = PageableExecutionUtils.getPage(tuple.getT1(), pageable, () -> tuple.getT2());
-			return page;
-		});
+		return results.collectList().zipWith(countOperation.apply(predicate)).map(tuple -> PageableExecutionUtils.getPage(tuple.getT1(), pageable, tuple::getT2));
 	}
 
 	@Override

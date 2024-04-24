@@ -154,7 +154,7 @@ public class ReactiveCustomTypesIT {
 
 		List<PersonWithCustomId.PersonId> ids = Stream.generate(customIdValueGenerator::incrementAndGet)
 				.map(PersonWithCustomId.PersonId::new).limit(2).collect(Collectors.toList());
-		try (Session session = driver.session(bookmarkCapture.createSessionConfig());) {
+		try (Session session = driver.session(bookmarkCapture.createSessionConfig())) {
 			ids.forEach(id -> session.executeWrite(createPersonWithCustomId(id)));
 			bookmarkCapture.seedWith(session.lastBookmarks());
 		}

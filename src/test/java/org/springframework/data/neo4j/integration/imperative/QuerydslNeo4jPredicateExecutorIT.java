@@ -97,7 +97,7 @@ class QuerydslNeo4jPredicateExecutorIT {
 	void fluentFindOneShouldWork(@Autowired QueryDSLPersonRepository repository) {
 
 		Predicate predicate = Expressions.predicate(Ops.EQ, firstNamePath, Expressions.asString("Helge"));
-		Person person = repository.findBy(predicate, q -> q.oneValue());
+		Person person = repository.findBy(predicate, FluentQuery.FetchableFluentQuery::oneValue);
 
 		assertThat(person).isNotNull();
 		assertThat(person).extracting(Person::getLastName).isEqualTo("Schneider");
@@ -108,7 +108,7 @@ class QuerydslNeo4jPredicateExecutorIT {
 
 		Predicate predicate = Expressions.predicate(Ops.EQ, firstNamePath, Expressions.asString("Helge"))
 				.or(Expressions.predicate(Ops.EQ, lastNamePath, Expressions.asString("B.")));
-		List<Person> people = repository.findBy(predicate, q -> q.all());
+		List<Person> people = repository.findBy(predicate, FluentQuery.FetchableFluentQuery::all);
 
 		assertThat(people).extracting(Person::getFirstName)
 				.containsExactlyInAnyOrder("Bela", "Helge");
@@ -302,7 +302,7 @@ class QuerydslNeo4jPredicateExecutorIT {
 	void fluentExistsShouldWork(@Autowired QueryDSLPersonRepository repository) {
 
 		Predicate predicate = Expressions.predicate(Ops.EQ, firstNamePath, Expressions.asString("Helge"));
-		boolean exists = repository.findBy(predicate, q -> q.exists());
+		boolean exists = repository.findBy(predicate, FluentQuery.FetchableFluentQuery::exists);
 
 		assertThat(exists).isTrue();
 	}
@@ -312,7 +312,7 @@ class QuerydslNeo4jPredicateExecutorIT {
 
 		Predicate predicate = Expressions.predicate(Ops.EQ, firstNamePath, Expressions.asString("Helge"))
 				.or(Expressions.predicate(Ops.EQ, lastNamePath, Expressions.asString("B.")));
-		long count = repository.findBy(predicate, q -> q.count());
+		long count = repository.findBy(predicate, FluentQuery.FetchableFluentQuery::count);
 
 		assertThat(count).isEqualTo(2);
 	}

@@ -87,10 +87,7 @@ public class SecondLevelEntity {
 		}
 		final Object this$id = this.getId();
 		final Object other$id = other.getId();
-		if (this$id == null ? other$id != null : !this$id.equals(other$id)) {
-			return false;
-		}
-		return true;
+		return !(this$id == null ? other$id != null : !this$id.equals(other$id));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -98,10 +95,10 @@ public class SecondLevelEntity {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		return result;
 	}
 
@@ -110,7 +107,7 @@ public class SecondLevelEntity {
 	 * @param <C> needed c type
 	 * @param <B> needed b type
 	 */
-	public static abstract class SecondLevelEntityBuilder<C extends SecondLevelEntity, B extends SecondLevelEntityBuilder<C, B>> {
+	public abstract static class SecondLevelEntityBuilder<C extends SecondLevelEntity, B extends SecondLevelEntityBuilder<C, B>> {
 		private Long id;
 		private String someValue;
 		private List<ThirdLevelEntityRelationship> thirdLevelEntityRelationshipProperties;

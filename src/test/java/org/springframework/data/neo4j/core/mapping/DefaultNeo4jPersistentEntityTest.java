@@ -155,7 +155,7 @@ class DefaultNeo4jPersistentEntityTest {
 			String expectedMessage = ".*TypeWithInvalidDynamicRelationshipMappings\\d already contains a dynamic relationship to class org\\.springframework\\.data\\.neo4j\\.core\\.mapping\\.Neo4jMappingContextTest\\$BikeNode; only one dynamic relationship between to entities is permitted";
 			Neo4jMappingContext schema = new Neo4jMappingContext();
 			schema.setInitialEntitySet(new HashSet<>(Arrays.asList(entityToTest)));
-			assertThatIllegalStateException().isThrownBy(() -> schema.initialize()).withMessageMatching(expectedMessage);
+			assertThatIllegalStateException().isThrownBy(schema::initialize).withMessageMatching(expectedMessage);
 		}
 
 		@Test // DATAGRAPH-1420
@@ -324,7 +324,7 @@ class DefaultNeo4jPersistentEntityTest {
 			Assertions.assertThat(persistentEntity.getPersistentProperty("dynamicLabels").isRelationship()).isFalse();
 
 			assertThat(persistentEntity.getDynamicLabelsProperty())
-					.hasValueSatisfying(p -> p.getFieldName().equals("dynamicLabels"));
+					.hasValueSatisfying(p -> "dynamicLabels".equals(p.getFieldName()));
 		}
 
 		@Test
@@ -347,7 +347,7 @@ class DefaultNeo4jPersistentEntityTest {
 			Assertions.assertThat(persistentEntity.getPersistentProperty("dynamicLabels").isRelationship()).isFalse();
 
 			assertThat(persistentEntity.getDynamicLabelsProperty())
-					.hasValueSatisfying(p -> p.getFieldName().equals("dynamicLabels"));
+					.hasValueSatisfying(p -> "dynamicLabels".equals(p.getFieldName()));
 		}
 
 		@Test
@@ -534,7 +534,7 @@ class DefaultNeo4jPersistentEntityTest {
 	}
 
 	@Node(primaryLabel = "Base", labels = { "Bases" })
-	private static abstract class BaseClass {
+	private abstract static class BaseClass {
 		@Id private Long id;
 	}
 

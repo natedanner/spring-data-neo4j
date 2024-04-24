@@ -108,8 +108,8 @@ class ReactiveTransactionManagerMixedDatabasesTest {
 	void usingAnotherDatabaseDeclarative(@Autowired WrapperService wrapperService) {
 
 		StepVerifier.create(wrapperService.usingAnotherDatabaseDeclarative())
-				.expectErrorMatches(e -> e instanceof IllegalStateException && e.getMessage()
-						.equals("There is already an ongoing Spring transaction for the default user of the default database, but you requested the default user of 'boom'"))
+				.expectErrorMatches(e -> e instanceof IllegalStateException && "There is already an ongoing Spring transaction for the default user of the default database, but you requested the default user of 'boom'"
+						.equals(e.getMessage()))
 				.verify();
 	}
 
@@ -122,8 +122,8 @@ class ReactiveTransactionManagerMixedDatabasesTest {
 				.one().as(transactionTemplate::transactional);
 
 		StepVerifier.create(numberOfNodes)
-				.expectErrorMatches(e -> e instanceof IllegalStateException && e.getMessage()
-						.equals("There is already an ongoing Spring transaction for the default user of the default database, but you requested the default user of 'boom'"))
+				.expectErrorMatches(e -> e instanceof IllegalStateException && "There is already an ongoing Spring transaction for the default user of the default database, but you requested the default user of 'boom'"
+						.equals(e.getMessage()))
 				.verify();
 	}
 
@@ -139,8 +139,8 @@ class ReactiveTransactionManagerMixedDatabasesTest {
 				.as(otherTransactionTemplate::transactional);
 
 		StepVerifier.create(p)
-				.expectErrorMatches(e -> e instanceof IllegalStateException && e.getMessage()
-						.equals("There is already an ongoing Spring transaction for the default user of 'boom', but you requested the default user of the default database"))
+				.expectErrorMatches(e -> e instanceof IllegalStateException && "There is already an ongoing Spring transaction for the default user of 'boom', but you requested the default user of the default database"
+						.equals(e.getMessage()))
 				.verify();
 	}
 

@@ -79,10 +79,7 @@ public class AccountingMeasurementMeta extends MeasurementMeta {
 		if (!other.canEqual((Object) this)) {
 			return false;
 		}
-		if (!super.equals(o)) {
-			return false;
-		}
-		return true;
+		return !!super.equals(o);
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -90,8 +87,7 @@ public class AccountingMeasurementMeta extends MeasurementMeta {
 	}
 
 	public int hashCode() {
-		int result = super.hashCode();
-		return result;
+		return super.hashCode();
 	}
 
 	public AccountingMeasurementMetaBuilder<?, ?> toBuilder() {
@@ -103,7 +99,7 @@ public class AccountingMeasurementMeta extends MeasurementMeta {
 	 * @param <C> needed c type
 	 * @param <B> needed b type
 	 */
-	public static abstract class AccountingMeasurementMetaBuilder<C extends AccountingMeasurementMeta, B extends AccountingMeasurementMetaBuilder<C, B>> extends MeasurementMetaBuilder<C, B> {
+	public abstract static class AccountingMeasurementMetaBuilder<C extends AccountingMeasurementMeta, B extends AccountingMeasurementMetaBuilder<C, B>> extends MeasurementMetaBuilder<C, B> {
 		private String formula;
 		private MeasurementMeta baseMeasurement;
 

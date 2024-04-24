@@ -97,10 +97,7 @@ public class PersonModel {
 		}
 		final Object this$favoriteFood = this.getFavoriteFood();
 		final Object other$favoriteFood = other.getFavoriteFood();
-		if (this$favoriteFood == null ? other$favoriteFood != null : !this$favoriteFood.equals(other$favoriteFood)) {
-			return false;
-		}
-		return true;
+		return !(this$favoriteFood == null ? other$favoriteFood != null : !this$favoriteFood.equals(other$favoriteFood));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -108,16 +105,16 @@ public class PersonModel {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $personId = this.getPersonId();
-		result = result * PRIME + ($personId == null ? 43 : $personId.hashCode());
+		result = result * prime + ($personId == null ? 43 : $personId.hashCode());
 		final Object $address = this.getAddress();
-		result = result * PRIME + ($address == null ? 43 : $address.hashCode());
+		result = result * prime + ($address == null ? 43 : $address.hashCode());
 		final Object $name = this.getName();
-		result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+		result = result * prime + ($name == null ? 43 : $name.hashCode());
 		final Object $favoriteFood = this.getFavoriteFood();
-		result = result * PRIME + ($favoriteFood == null ? 43 : $favoriteFood.hashCode());
+		result = result * prime + ($favoriteFood == null ? 43 : $favoriteFood.hashCode());
 		return result;
 	}
 

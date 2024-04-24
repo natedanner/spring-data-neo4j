@@ -147,8 +147,8 @@ class ReactiveCypherdslStatementExecutorIT {
 
 		repository.findOne(whoHasFirstNameWithAddress("Helge"))
 				.as(StepVerifier::create)
-				.expectNextMatches(p -> p.getFirstName().equals("Helge") && p.getLastName().equals("Schneider") &&
-										p.getAddress().getCity().equals("Mülheim an der Ruhr"))
+				.expectNextMatches(p -> "Helge".equals(p.getFirstName()) && "Schneider".equals(p.getLastName()) &&
+										"Mülheim an der Ruhr".equals(p.getAddress().getCity()))
 				.verifyComplete();
 	}
 
@@ -165,7 +165,7 @@ class ReactiveCypherdslStatementExecutorIT {
 
 		repository.findOne(whoHasFirstName("Helge"), NamesOnly.class)
 				.as(StepVerifier::create)
-				.expectNextMatches(p -> p.getFullName().equals("Helge Schneider"))
+				.expectNextMatches(p -> "Helge Schneider".equals(p.getFullName()))
 				.verifyComplete();
 	}
 

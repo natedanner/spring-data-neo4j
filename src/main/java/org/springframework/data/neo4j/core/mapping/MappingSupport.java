@@ -189,7 +189,7 @@ public final class MappingSupport {
 	 * Class that defines a tuple of relationship with properties and the connected target entity.
 	 */
 	@API(status = API.Status.INTERNAL)
-	public final static class RelationshipPropertiesWithEntityHolder {
+	public static final class RelationshipPropertiesWithEntityHolder {
 		private final PersistentPropertyAccessor<?> relationshipPropertiesPropertyAccessor;
 		private final Object relationshipProperties;
 		private final Object relatedEntity;

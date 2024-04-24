@@ -24,7 +24,7 @@ import org.springframework.data.neo4j.core.schema.Node;
  * "https://docs.spring.io/spring-data/commons/docs/current/reference/html/#mapping.property-population">here</a>.
  */
 @Node
-public class PersonWithWither {
+public final class PersonWithWither {
 
 	@Id
 	@GeneratedValue

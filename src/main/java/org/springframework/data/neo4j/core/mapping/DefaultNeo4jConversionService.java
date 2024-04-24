@@ -140,7 +140,7 @@ final class DefaultNeo4jConversionService implements Neo4jConversionService {
 
 		if (isCollection(type) && !applyConversionToCompleteCollection) {
 			Collection<?> sourceCollection = (Collection<?>) value;
-			Object[] targetCollection = (sourceCollection).stream().map(conversion::apply).toArray();
+			Object[] targetCollection = sourceCollection.stream().map(conversion::apply).toArray();
 			return Values.value(targetCollection);
 		}
 

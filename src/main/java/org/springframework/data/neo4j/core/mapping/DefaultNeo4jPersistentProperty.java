@@ -92,7 +92,7 @@ final class DefaultNeo4jPersistentProperty extends AnnotationBasedPersistentProp
 			if (isAnnotationPresent(Relationship.class)) {
 				return true;
 			}
-			return !(isWritableProperty.get());
+			return !isWritableProperty.get();
 		});
 
 		this.customConversion = Lazy.of(() -> {

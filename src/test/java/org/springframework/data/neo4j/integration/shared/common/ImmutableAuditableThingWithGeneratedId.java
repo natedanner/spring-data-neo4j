@@ -121,27 +121,24 @@ public final class ImmutableAuditableThingWithGeneratedId implements AuditableTh
 		}
 		final Object this$name = this.getName();
 		final Object other$name = other.getName();
-		if (this$name == null ? other$name != null : !this$name.equals(other$name)) {
-			return false;
-		}
-		return true;
+		return !(this$name == null ? other$name != null : !this$name.equals(other$name));
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		final Object $createdAt = this.getCreatedAt();
-		result = result * PRIME + ($createdAt == null ? 43 : $createdAt.hashCode());
+		result = result * prime + ($createdAt == null ? 43 : $createdAt.hashCode());
 		final Object $createdBy = this.getCreatedBy();
-		result = result * PRIME + ($createdBy == null ? 43 : $createdBy.hashCode());
+		result = result * prime + ($createdBy == null ? 43 : $createdBy.hashCode());
 		final Object $modifiedAt = this.getModifiedAt();
-		result = result * PRIME + ($modifiedAt == null ? 43 : $modifiedAt.hashCode());
+		result = result * prime + ($modifiedAt == null ? 43 : $modifiedAt.hashCode());
 		final Object $modifiedBy = this.getModifiedBy();
-		result = result * PRIME + ($modifiedBy == null ? 43 : $modifiedBy.hashCode());
+		result = result * prime + ($modifiedBy == null ? 43 : $modifiedBy.hashCode());
 		final Object $name = this.getName();
-		result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+		result = result * prime + ($name == null ? 43 : $name.hashCode());
 		return result;
 	}
 

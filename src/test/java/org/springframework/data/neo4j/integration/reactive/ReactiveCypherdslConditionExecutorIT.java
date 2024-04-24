@@ -77,7 +77,7 @@ class ReactiveCypherdslConditionExecutorIT {
 
 		repository.findOne(firstName.eq(Cypher.literalOf("Helge")))
 				.as(StepVerifier::create)
-				.expectNextMatches(p -> p.getLastName().equals("Schneider"))
+				.expectNextMatches(p -> "Schneider".equals(p.getLastName()))
 				.verifyComplete();
 	}
 

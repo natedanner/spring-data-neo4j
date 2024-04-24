@@ -70,10 +70,7 @@ public class OneToOneSource {
 		}
 		final Object this$target = this.getTarget();
 		final Object other$target = other.getTarget();
-		if (this$target == null ? other$target != null : !this$target.equals(other$target)) {
-			return false;
-		}
-		return true;
+		return !(this$target == null ? other$target != null : !this$target.equals(other$target));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -81,12 +78,12 @@ public class OneToOneSource {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $name = this.getName();
-		result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+		result = result * prime + ($name == null ? 43 : $name.hashCode());
 		final Object $target = this.getTarget();
-		result = result * PRIME + ($target == null ? 43 : $target.hashCode());
+		result = result * prime + ($target == null ? 43 : $target.hashCode());
 		return result;
 	}
 
@@ -138,10 +135,7 @@ public class OneToOneSource {
 			}
 			final Object this$target = this.getTarget();
 			final Object other$target = other.getTarget();
-			if (this$target == null ? other$target != null : !this$target.equals(other$target)) {
-				return false;
-			}
-			return true;
+			return !(this$target == null ? other$target != null : !this$target.equals(other$target));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -149,12 +143,12 @@ public class OneToOneSource {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $name = this.getName();
-			result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+			result = result * prime + ($name == null ? 43 : $name.hashCode());
 			final Object $target = this.getTarget();
-			result = result * PRIME + ($target == null ? 43 : $target.hashCode());
+			result = result * prime + ($target == null ? 43 : $target.hashCode());
 			return result;
 		}
 

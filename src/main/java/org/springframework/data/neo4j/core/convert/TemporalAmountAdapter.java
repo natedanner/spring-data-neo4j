@@ -66,7 +66,7 @@ final class TemporalAmountAdapter implements Function<TemporalAmount, TemporalAm
 		int type = 0;
 		for (int i = 0; i < SUPPORTED_UNITS.length; ++i) {
 			values[i] = TEMPORAL_UNIT_EXTRACTOR.apply(internalTemporalAmountRepresentation, SUPPORTED_UNITS[i]);
-			type |= (values[i] == 0) ? 0 : (0b10000 >> i);
+			type |= values[i] == 0 ? 0 : (0b10000 >> i);
 		}
 
 		boolean couldBePeriod = couldBePeriod(type);

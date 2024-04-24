@@ -27,7 +27,7 @@ public class InitialEntities {
 	/**
 	 * Base
 	 */
-	public static abstract class AbstractBase {
+	public abstract static class AbstractBase {
 
 		@Id
 		@GeneratedValue(generatorClass = SomeStringGenerator.class)
@@ -39,7 +39,7 @@ public class InitialEntities {
 	 * This is where the repository accesses the domain.
 	 */
 	@Node
-	public static abstract class SomethingInBetween extends AbstractBase {
+	public abstract static class SomethingInBetween extends AbstractBase {
 		public String name;
 	}
 

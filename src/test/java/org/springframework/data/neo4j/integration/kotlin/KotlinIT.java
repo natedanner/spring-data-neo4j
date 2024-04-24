@@ -52,7 +52,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Neo4jIntegrationTest
 class KotlinIT {
 
-	private final static String PERSON_NAME = "test";
+	private static final String PERSON_NAME = "test";
 
 	private static Neo4jConnectionSupport neo4jConnectionSupport;
 
@@ -98,7 +98,7 @@ class KotlinIT {
 				.allSatisfy(p -> {
 					assertThat(p.getOtherPrimitive()).isEqualTo(32);
 					assertThat(p.getSomeTruth()).isTrue();
-					if (p.getId().equalsIgnoreCase("first")) {
+					if ("first".equalsIgnoreCase(p.getId())) {
 						assertThat(p.getName()).isEqualTo("First name");
 					} else {
 						assertThat(p.getName()).isEqualTo("Unknown");

@@ -158,10 +158,7 @@ final class ReactiveFluentQueryByExample<S, R> extends FluentQuerySupport<R> imp
 				.matching(QueryFragmentsAndParameters.forExampleWithPageable(mappingContext, example, pageable,
 						createIncludedFieldsPredicate()))
 				.all();
-		return results.collectList().zipWith(countOperation.apply(example)).map(tuple -> {
-			Page<R> page = PageableExecutionUtils.getPage(tuple.getT1(), pageable, () -> tuple.getT2());
-			return page;
-		});
+		return results.collectList().zipWith(countOperation.apply(example)).map(tuple -> PageableExecutionUtils.getPage(tuple.getT1(), pageable, tuple::getT2));
 	}
 
 	@Override
@@ -171,7 +168,7 @@ final class ReactiveFluentQueryByExample<S, R> extends FluentQuerySupport<R> imp
 
 		var skip = scrollPosition.isInitial()
 				? 0
-				: (scrollPosition instanceof OffsetScrollPosition offsetScrollPosition) ? offsetScrollPosition.getOffset()
+				: scrollPosition instanceof OffsetScrollPosition offsetScrollPosition ? offsetScrollPosition.getOffset()
 				: 0;
 
 		Condition condition = scrollPosition instanceof KeysetScrollPosition keysetScrollPosition

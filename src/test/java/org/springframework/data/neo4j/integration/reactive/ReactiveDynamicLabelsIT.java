@@ -464,7 +464,7 @@ public class ReactiveDynamicLabelsIT {
 
 		@BeforeEach
 		void setupData() {
-			try (Session session = driver.session();) {
+			try (Session session = driver.session()) {
 				session.executeWrite(tx -> tx.run("MATCH (n) DETACH DELETE n").consume());
 				existingEntityId = session.executeWrite(this::createTestEntity);
 				bookmarkCapture.seedWith(session.lastBookmarks());

@@ -126,10 +126,7 @@ public class DoritoEatingPerson {
 		}
 		final Object this$friends = this.getFriends();
 		final Object other$friends = other.getFriends();
-		if (this$friends == null ? other$friends != null : !this$friends.equals(other$friends)) {
-			return false;
-		}
-		return true;
+		return !(this$friends == null ? other$friends != null : !this$friends.equals(other$friends));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -137,16 +134,16 @@ public class DoritoEatingPerson {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final long $id = this.getId();
-		result = result * PRIME + (int) ($id >>> 32 ^ $id);
+		result = result * prime + (int) ($id >>> 32 ^ $id);
 		final Object $name = this.getName();
-		result = result * PRIME + ($name == null ? 43 : $name.hashCode());
-		result = result * PRIME + (this.isEatsDoritos() ? 79 : 97);
-		result = result * PRIME + (this.isFriendsAlsoEatDoritos() ? 79 : 97);
+		result = result * prime + ($name == null ? 43 : $name.hashCode());
+		result = result * prime + (this.isEatsDoritos() ? 79 : 97);
+		result = result * prime + (this.isFriendsAlsoEatDoritos() ? 79 : 97);
 		final Object $friends = this.getFriends();
-		result = result * PRIME + ($friends == null ? 43 : $friends.hashCode());
+		result = result * prime + ($friends == null ? 43 : $friends.hashCode());
 		return result;
 	}
 

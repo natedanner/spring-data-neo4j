@@ -62,21 +62,18 @@ public final class DtoPersonProjection {
 		}
 		final Object this$firstName = this.getFirstName();
 		final Object other$firstName = other.getFirstName();
-		if (this$firstName == null ? other$firstName != null : !this$firstName.equals(other$firstName)) {
-			return false;
-		}
-		return true;
+		return !(this$firstName == null ? other$firstName != null : !this$firstName.equals(other$firstName));
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $name = this.getName();
-		result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+		result = result * prime + ($name == null ? 43 : $name.hashCode());
 		final Object $sameValue = this.getSameValue();
-		result = result * PRIME + ($sameValue == null ? 43 : $sameValue.hashCode());
+		result = result * prime + ($sameValue == null ? 43 : $sameValue.hashCode());
 		final Object $firstName = this.getFirstName();
-		result = result * PRIME + ($firstName == null ? 43 : $firstName.hashCode());
+		result = result * prime + ($firstName == null ? 43 : $firstName.hashCode());
 		return result;
 	}
 

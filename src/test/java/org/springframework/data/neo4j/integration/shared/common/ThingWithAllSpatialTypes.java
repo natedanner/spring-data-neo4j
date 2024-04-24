@@ -30,7 +30,7 @@ import org.springframework.data.neo4j.types.GeographicPoint3d;
  * @author Michael J. Simons
  */
 @Node("SpatialTypes")
-public class ThingWithAllSpatialTypes {
+public final class ThingWithAllSpatialTypes {
 
 	@Id
 	@GeneratedValue
@@ -141,10 +141,7 @@ public class ThingWithAllSpatialTypes {
 		}
 		final Object this$car3d = this.getCar3d();
 		final Object other$car3d = other.getCar3d();
-		if (this$car3d == null ? other$car3d != null : !this$car3d.equals(other$car3d)) {
-			return false;
-		}
-		return true;
+		return !(this$car3d == null ? other$car3d != null : !this$car3d.equals(other$car3d));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -152,20 +149,20 @@ public class ThingWithAllSpatialTypes {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		final Object $sdnPoint = this.getSdnPoint();
-		result = result * PRIME + ($sdnPoint == null ? 43 : $sdnPoint.hashCode());
+		result = result * prime + ($sdnPoint == null ? 43 : $sdnPoint.hashCode());
 		final Object $geo2d = this.getGeo2d();
-		result = result * PRIME + ($geo2d == null ? 43 : $geo2d.hashCode());
+		result = result * prime + ($geo2d == null ? 43 : $geo2d.hashCode());
 		final Object $geo3d = this.getGeo3d();
-		result = result * PRIME + ($geo3d == null ? 43 : $geo3d.hashCode());
+		result = result * prime + ($geo3d == null ? 43 : $geo3d.hashCode());
 		final Object $car2d = this.getCar2d();
-		result = result * PRIME + ($car2d == null ? 43 : $car2d.hashCode());
+		result = result * prime + ($car2d == null ? 43 : $car2d.hashCode());
 		final Object $car3d = this.getCar3d();
-		result = result * PRIME + ($car3d == null ? 43 : $car3d.hashCode());
+		result = result * prime + ($car3d == null ? 43 : $car3d.hashCode());
 		return result;
 	}
 

@@ -221,11 +221,11 @@ class ReactiveStringlyTypeDynamicRelationshipsIT extends DynamicRelationshipsITB
 
 		try (Transaction transaction = driver.session(bookmarkCapture.createSessionConfig()).beginTransaction()) {
 			long numberOfRelations = transaction
-					.run(("MATCH (t:%s)-[r]->(:Person) WHERE id(t) = $id RETURN count(r) as numberOfRelations").formatted(labelOfTestSubject), Values.parameters("id", newPerson.getId()))
+					.run("MATCH (t:%s)-[r]->(:Person) WHERE id(t) = $id RETURN count(r) as numberOfRelations".formatted(labelOfTestSubject), Values.parameters("id", newPerson.getId()))
 					.single().get("numberOfRelations").asLong();
 			assertThat(numberOfRelations).isEqualTo(2L);
 			numberOfRelations = transaction
-					.run(("MATCH (t:%s)-[r]->(:Club) WHERE id(t) = $id RETURN count(r) as numberOfRelations").formatted(labelOfTestSubject), Values.parameters("id", newPerson.getId()))
+					.run("MATCH (t:%s)-[r]->(:Club) WHERE id(t) = $id RETURN count(r) as numberOfRelations".formatted(labelOfTestSubject), Values.parameters("id", newPerson.getId()))
 					.single().get("numberOfRelations").asLong();
 			assertThat(numberOfRelations).isEqualTo(2L);
 		}
@@ -268,12 +268,12 @@ class ReactiveStringlyTypeDynamicRelationshipsIT extends DynamicRelationshipsITB
 
 		try (Transaction transaction = driver.session(bookmarkCapture.createSessionConfig()).beginTransaction()) {
 			long numberOfRelations = transaction
-					.run(("MATCH (t:%s)-[r]->(:Pet) WHERE id(t) = $id RETURN count(r) as numberOfRelations").formatted(labelOfTestSubject),
+					.run("MATCH (t:%s)-[r]->(:Pet) WHERE id(t) = $id RETURN count(r) as numberOfRelations".formatted(labelOfTestSubject),
 							Values.parameters("id", newPerson.getId()))
 					.single().get("numberOfRelations").asLong();
 			assertThat(numberOfRelations).isEqualTo(3L);
 			numberOfRelations = transaction
-					.run(("MATCH (t:%s)-[r]->(:Hobby) WHERE id(t) = $id RETURN count(r) as numberOfRelations").formatted(labelOfTestSubject),
+					.run("MATCH (t:%s)-[r]->(:Hobby) WHERE id(t) = $id RETURN count(r) as numberOfRelations".formatted(labelOfTestSubject),
 							Values.parameters("id", newPerson.getId()))
 					.single().get("numberOfRelations").asLong();
 			assertThat(numberOfRelations).isEqualTo(2L);

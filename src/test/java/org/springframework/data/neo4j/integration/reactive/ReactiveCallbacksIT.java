@@ -76,7 +76,7 @@ class ReactiveCallbacksIT extends CallbacksITBase {
 		List<ThingWithAssignedId> savedThings = new ArrayList<>();
 		TransactionalOperator transactionalOperator = TransactionalOperator.create(transactionManager);
 		transactionalOperator.execute(t -> operationUnderTest).as(StepVerifier::create).recordWith(() -> savedThings)
-				.expectNextMatches(t -> t.getName().equals("A name (Edited)") && t.getRandomValue() == null)
+				.expectNextMatches(t -> "A name (Edited)".equals(t.getName()) && t.getRandomValue() == null)
 				.verifyComplete();
 
 		verifyDatabase(savedThings);
@@ -111,8 +111,8 @@ class ReactiveCallbacksIT extends CallbacksITBase {
 		List<ThingWithAssignedId> savedThings = new ArrayList<>();
 		TransactionalOperator transactionalOperator = TransactionalOperator.create(transactionManager);
 		transactionalOperator.execute(t -> operationUnderTest).as(StepVerifier::create).recordWith(() -> savedThings)
-				.expectNextMatches(t -> t.getName().equals("A name (Edited)") && t.getRandomValue() == null)
-				.expectNextMatches(t -> t.getName().equals("Another name (Edited)") && t.getRandomValue() == null).verifyComplete();
+				.expectNextMatches(t -> "A name (Edited)".equals(t.getName()) && t.getRandomValue() == null)
+				.expectNextMatches(t -> "Another name (Edited)".equals(t.getName()) && t.getRandomValue() == null).verifyComplete();
 
 		verifyDatabase(savedThings);
 	}
@@ -131,8 +131,8 @@ class ReactiveCallbacksIT extends CallbacksITBase {
 		List<ThingWithAssignedId> savedThings = new ArrayList<>();
 		TransactionalOperator transactionalOperator = TransactionalOperator.create(transactionManager);
 		transactionalOperator.execute(t -> operationUnderTest).as(StepVerifier::create).recordWith(() -> savedThings)
-				.expectNextMatches(t -> t.getName().equals("A name (Edited)") && t.getRandomValue() == null)
-				.expectNextMatches(t -> t.getName().equals("Another name (Edited)") && t.getRandomValue() == null).verifyComplete();
+				.expectNextMatches(t -> "A name (Edited)".equals(t.getName()) && t.getRandomValue() == null)
+				.expectNextMatches(t -> "Another name (Edited)".equals(t.getName()) && t.getRandomValue() == null).verifyComplete();
 
 		verifyDatabase(savedThings);
 	}

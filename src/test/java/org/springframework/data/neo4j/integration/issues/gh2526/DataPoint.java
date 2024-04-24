@@ -82,17 +82,14 @@ public final class DataPoint {
 		final DataPoint other = (DataPoint) o;
 		final Object this$measurand = this.getMeasurand();
 		final Object other$measurand = other.getMeasurand();
-		if (this$measurand == null ? other$measurand != null : !this$measurand.equals(other$measurand)) {
-			return false;
-		}
-		return true;
+		return !(this$measurand == null ? other$measurand != null : !this$measurand.equals(other$measurand));
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $measurand = this.getMeasurand();
-		result = result * PRIME + ($measurand == null ? 43 : $measurand.hashCode());
+		result = result * prime + ($measurand == null ? 43 : $measurand.hashCode());
 		return result;
 	}
 }

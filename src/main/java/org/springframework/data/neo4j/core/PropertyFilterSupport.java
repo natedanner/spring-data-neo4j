@@ -170,7 +170,7 @@ public final class PropertyFilterSupport {
 		}
 	}
 
-	private static class ProjectionPathProcessor {
+	private static final class ProjectionPathProcessor {
 		final TypeInformation<?> typeInformation;
 		final String path;
 		final String name;

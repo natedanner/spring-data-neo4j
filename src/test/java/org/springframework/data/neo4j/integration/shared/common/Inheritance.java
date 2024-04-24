@@ -358,7 +358,7 @@ public class Inheritance {
 	 * super base class
 	 */
 	@Node
-	public static abstract class SuperBaseClass {
+	public abstract static class SuperBaseClass {
 		@Id
 		@GeneratedValue
 		private Long id;
@@ -372,7 +372,7 @@ public class Inheritance {
 	 * base class
 	 */
 	@Node
-	public static abstract class BaseClass extends SuperBaseClass {
+	public abstract static class BaseClass extends SuperBaseClass {
 
 		private final String name;
 
@@ -458,7 +458,7 @@ public class Inheritance {
 	 * Base class with explicit primary and additional labels.
 	 */
 	@Node({"LabeledBaseClass", "And_another_one"})
-	public static abstract class BaseClassWithLabels {
+	public abstract static class BaseClassWithLabels {
 
 		@Id
 		@GeneratedValue
@@ -559,7 +559,7 @@ public class Inheritance {
 	 * Abstract super base class with relationships
 	 */
 	@Node("SuperBaseClassWithRelationship")
-	public static abstract class SuperBaseClassWithRelationship {
+	public abstract static class SuperBaseClassWithRelationship {
 		@Id
 		@GeneratedValue
 		private Long id;
@@ -580,7 +580,7 @@ public class Inheritance {
 	 * Abstract base class with relationships
 	 */
 	@Node("BaseClassWithRelationship")
-	public static abstract class BaseClassWithRelationship extends SuperBaseClassWithRelationship {
+	public abstract static class BaseClassWithRelationship extends SuperBaseClassWithRelationship {
 
 		@Relationship("HAS")
 		private List<SuperBaseClass> things;
@@ -618,7 +618,7 @@ public class Inheritance {
 	 * Abstract super base class with relationship properties
 	 */
 	@Node("SuperBaseClassWithRelationshipProperties")
-	public static abstract class SuperBaseClassWithRelationshipProperties {
+	public abstract static class SuperBaseClassWithRelationshipProperties {
 		@Id
 		@GeneratedValue
 		private Long id;
@@ -639,7 +639,7 @@ public class Inheritance {
 	 * Abstract base class with relationship properties
 	 */
 	@Node("BaseClassWithRelationshipProperties")
-	public static abstract class BaseClassWithRelationshipProperties extends SuperBaseClassWithRelationshipProperties {
+	public abstract static class BaseClassWithRelationshipProperties extends SuperBaseClassWithRelationshipProperties {
 
 		@Relationship("HAS")
 		private List<SuperBaseClassRelationshipProperties> things;
@@ -777,7 +777,7 @@ public class Inheritance {
 	 * Base entity for GH-2138 generic relationships tests
 	 */
 	@Node("Entity")
-	public static abstract class Entity {
+	public abstract static class Entity {
 		@org.springframework.data.annotation.Id
 		@GeneratedValue
 		public Long id;
@@ -812,7 +812,7 @@ public class Inheritance {
 	 * Base entity for GH-2138 generic relationship in child class tests
 	 */
 	@Node
-	public static abstract class BaseEntity {
+	public abstract static class BaseEntity {
 		@Id
 		@GeneratedValue
 		public Long id;
@@ -823,7 +823,7 @@ public class Inheritance {
 	 * BaseTerritory
 	 */
 	@Node
-	public static abstract class BaseTerritory extends BaseEntity {
+	public abstract static class BaseTerritory extends BaseEntity {
 		public String nameEs;
 		public final String nameEn;
 
@@ -955,7 +955,7 @@ public class Inheritance {
 	 * Parent class with relationship definition in the constructor
 	 */
 	@Node("PCWR")
-	public static abstract class ParentClassWithRelationship {
+	public abstract static class ParentClassWithRelationship {
 
 		@Id
 		@GeneratedValue

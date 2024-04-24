@@ -982,12 +982,11 @@ class IssuesIT extends TestBase {
 		Optional<TableNode> resolvedTableNode = tableRepository.findById(tableNode.getId());
 		assertThat(resolvedTableNode)
 				.map(TableNode::getTableAndColumnRelation)
-				.hasValueSatisfying(l -> {
+				.hasValueSatisfying(l ->
 					assertThat(l)
 							.map(TableAndColumnRelation::getColumnNode)
 							.map(ColumnNode::getId)
-							.containsExactlyInAnyOrder(c1Id, c2Id);
-				});
+							.containsExactlyInAnyOrder(c1Id, c2Id));
 	}
 
 	@Test
@@ -1025,9 +1024,9 @@ class IssuesIT extends TestBase {
 		Company loadedAcme = companyRepository.findByName("ACME");
 
 		Developer loadedHarry = loadedAcme.getEmployees().stream()
-				.filter(e -> e instanceof Developer)
-				.map(e -> (Developer) e)
-				.filter(developer -> developer.getName().equals("Harry"))
+				.filter(Developer.class::isInstance)
+				.map(Developer.class::cast)
+				.filter(developer -> "Harry".equals(developer.getName()))
 				.findFirst().get();
 
 		List<LanguageRelationship> programmingLanguages = loadedHarry.getProgrammingLanguages();

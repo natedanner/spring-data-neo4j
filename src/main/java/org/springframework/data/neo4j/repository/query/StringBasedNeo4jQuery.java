@@ -67,7 +67,7 @@ final class StringBasedNeo4jQuery extends AbstractNeo4jQuery {
 	static final SpelQueryContext SPEL_QUERY_CONTEXT = SpelQueryContext.of(StringBasedNeo4jQuery::parameterNameSource,
 			StringBasedNeo4jQuery::replacementSource);
 
-	private final static String COMMENT_OR_WHITESPACE_GROUP = "(?:\\s|/\\\\*.*?\\\\*/|//.*?$)";
+	private static final String COMMENT_OR_WHITESPACE_GROUP = "(?:\\s|/\\\\*.*?\\\\*/|//.*?$)";
 	static final Pattern SKIP_AND_LIMIT_WITH_PLACEHOLDER_PATTERN = Pattern
 			.compile(""
 					 + "(?ims)"

@@ -35,7 +35,7 @@ import java.util.function.Function;
 public final class Constants {
 
 	public static final Function<NodeDescription<?>, SymbolicName> NAME_OF_TYPED_ROOT_NODE =
-			(nodeDescription) -> nodeDescription != null
+			nodeDescription -> nodeDescription != null
 			? Cypher.name(StringUtils.uncapitalize(nodeDescription.getUnderlyingClass().getSimpleName()))
 			: Cypher.name("n");
 

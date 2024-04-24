@@ -35,7 +35,7 @@ public final class BookmarkManagerReference implements ApplicationContextAware {
 
 	private final Supplier<Neo4jBookmarkManager> defaultBookmarkManagerSupplier;
 
-	private ObjectProvider<Neo4jBookmarkManager> neo4jBookmarkManagers = new ObjectProvider<Neo4jBookmarkManager>() {
+	private ObjectProvider<Neo4jBookmarkManager> neo4jBookmarkManagers = new ObjectProvider<>() {
 		@Override
 		public Neo4jBookmarkManager getObject(Object... args) throws BeansException {
 			throw new BeanCreationException("This provider can't create new beans");

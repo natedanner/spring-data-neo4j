@@ -183,11 +183,8 @@ class CallbacksConfig {
 
 	@Bean
 	BeforeBindCallback<ThingWithAssignedId> nameChanger() {
-		return entity -> {
-			ThingWithAssignedId updatedThing = new ThingWithAssignedId(
+		return entity -> new ThingWithAssignedId(
 					entity.getTheId(), entity.getName() + " (Edited)");
-			return updatedThing;
-		};
 	}
 
 	@Bean

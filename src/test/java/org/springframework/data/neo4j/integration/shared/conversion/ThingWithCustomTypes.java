@@ -82,7 +82,7 @@ public class ThingWithCustomTypes {
 	/**
 	 * Custom type to convert
 	 */
-	public static class CustomType {
+	public static final class CustomType {
 
 		private final String value;
 
@@ -143,7 +143,7 @@ public class ThingWithCustomTypes {
 	/**
 	 * A type that is not bound anywhere but has a converter
 	 */
-	public static class DifferentType {
+	public static final class DifferentType {
 
 		private final String value;
 

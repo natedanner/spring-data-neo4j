@@ -120,10 +120,7 @@ public class CityModelDTO {
 		}
 		final Object this$cityEmployees = this.getCityEmployees();
 		final Object other$cityEmployees = other.getCityEmployees();
-		if (this$cityEmployees == null ? other$cityEmployees != null : !this$cityEmployees.equals(other$cityEmployees)) {
-			return false;
-		}
-		return true;
+		return !(this$cityEmployees == null ? other$cityEmployees != null : !this$cityEmployees.equals(other$cityEmployees));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -131,20 +128,20 @@ public class CityModelDTO {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $cityId = this.getCityId();
-		result = result * PRIME + ($cityId == null ? 43 : $cityId.hashCode());
+		result = result * prime + ($cityId == null ? 43 : $cityId.hashCode());
 		final Object $name = this.getName();
-		result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+		result = result * prime + ($name == null ? 43 : $name.hashCode());
 		final Object $exoticProperty = this.getExoticProperty();
-		result = result * PRIME + ($exoticProperty == null ? 43 : $exoticProperty.hashCode());
+		result = result * prime + ($exoticProperty == null ? 43 : $exoticProperty.hashCode());
 		final Object $mayor = this.getMayor();
-		result = result * PRIME + ($mayor == null ? 43 : $mayor.hashCode());
+		result = result * prime + ($mayor == null ? 43 : $mayor.hashCode());
 		final Object $citizens = this.getCitizens();
-		result = result * PRIME + ($citizens == null ? 43 : $citizens.hashCode());
+		result = result * prime + ($citizens == null ? 43 : $citizens.hashCode());
 		final Object $cityEmployees = this.getCityEmployees();
-		result = result * PRIME + ($cityEmployees == null ? 43 : $cityEmployees.hashCode());
+		result = result * prime + ($cityEmployees == null ? 43 : $cityEmployees.hashCode());
 		return result;
 	}
 
@@ -182,10 +179,7 @@ public class CityModelDTO {
 			}
 			final Object this$personId = this.getPersonId();
 			final Object other$personId = other.getPersonId();
-			if (this$personId == null ? other$personId != null : !this$personId.equals(other$personId)) {
-				return false;
-			}
-			return true;
+			return !(this$personId == null ? other$personId != null : !this$personId.equals(other$personId));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -193,10 +187,10 @@ public class CityModelDTO {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $personId = this.getPersonId();
-			result = result * PRIME + ($personId == null ? 43 : $personId.hashCode());
+			result = result * prime + ($personId == null ? 43 : $personId.hashCode());
 			return result;
 		}
 
@@ -235,10 +229,7 @@ public class CityModelDTO {
 			}
 			final Object this$person = this.getPerson();
 			final Object other$person = other.getPerson();
-			if (this$person == null ? other$person != null : !this$person.equals(other$person)) {
-				return false;
-			}
-			return true;
+			return !(this$person == null ? other$person != null : !this$person.equals(other$person));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -246,10 +237,10 @@ public class CityModelDTO {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $person = this.getPerson();
-			result = result * PRIME + ($person == null ? 43 : $person.hashCode());
+			result = result * prime + ($person == null ? 43 : $person.hashCode());
 			return result;
 		}
 

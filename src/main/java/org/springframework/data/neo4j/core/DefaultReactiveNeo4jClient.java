@@ -106,7 +106,7 @@ final class DefaultReactiveNeo4jClient implements ReactiveNeo4jClient, Applicati
 		bookmarkManager.setApplicationContext(applicationContext);
 	}
 
-	private static class DelegatingQueryRunner implements ReactiveQueryRunner {
+	private static final class DelegatingQueryRunner implements ReactiveQueryRunner {
 
 		private final ReactiveQueryRunner delegate;
 		private final Collection<Bookmark> usedBookmarks;
@@ -416,7 +416,7 @@ final class DefaultReactiveNeo4jClient implements ReactiveNeo4jClient, Applicati
 		public Mono<T> one() {
 
 			return doInQueryRunnerForMono(databaseSelection, userSelection,
-					(runner) -> prepareStatement().flatMapMany(t -> executeWith(t, runner)).singleOrEmpty()
+					runner -> prepareStatement().flatMapMany(t -> executeWith(t, runner)).singleOrEmpty()
 					.onErrorMap(RuntimeException.class, DefaultReactiveNeo4jClient.this::potentiallyConvertRuntimeException));
 		}
 

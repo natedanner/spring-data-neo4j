@@ -112,7 +112,7 @@ class ProjectionIT {
 	void setup() {
 
 		try (Session session = driver.session(bookmarkCapture.createSessionConfig());
-		Transaction transaction = session.beginTransaction();) {
+		Transaction transaction = session.beginTransaction()) {
 
 			transaction.run("MATCH (n) detach delete n");
 			transaction.run("CREATE (p:PersonEntity {id: 'p1', email: 'p1@dep1.org'}) -[:MEMBER_OF]->(department:DepartmentEntity {id: 'd1', name: 'Dep1'}) RETURN p");

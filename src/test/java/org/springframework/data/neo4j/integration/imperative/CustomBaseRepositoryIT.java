@@ -62,9 +62,9 @@ public class CustomBaseRepositoryIT {
 	 * @param <T> Type of the entity
 	 * @param <ID> Type of the id
 	 */
-	static
+	public
 	// tag::custom-base-repository[]
-	public class MyRepositoryImpl<T, ID> extends SimpleNeo4jRepository<T, ID> {
+	static class MyRepositoryImpl<T, ID> extends SimpleNeo4jRepository<T, ID> {
 
 		MyRepositoryImpl(
 				Neo4jOperations neo4jOperations,

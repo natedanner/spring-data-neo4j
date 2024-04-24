@@ -36,7 +36,7 @@ import java.time.ZonedDateTime;
  */
 @SuppressWarnings("HiddenField")
 @Node("CypherTypes")
-public class ThingWithAllCypherTypes {
+public final class ThingWithAllCypherTypes {
 
 	@Id
 	@GeneratedValue
@@ -283,10 +283,7 @@ public class ThingWithAllCypherTypes {
 		}
 		final Object this$aZeroDuration = this.getAZeroDuration();
 		final Object other$aZeroDuration = other.getAZeroDuration();
-		if (this$aZeroDuration == null ? other$aZeroDuration != null : !this$aZeroDuration.equals(other$aZeroDuration)) {
-			return false;
-		}
-		return true;
+		return !(this$aZeroDuration == null ? other$aZeroDuration != null : !this$aZeroDuration.equals(other$aZeroDuration));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -294,36 +291,36 @@ public class ThingWithAllCypherTypes {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
-		result = result * PRIME + (this.isABoolean() ? 79 : 97);
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + (this.isABoolean() ? 79 : 97);
 		final long $aLong = this.getALong();
-		result = result * PRIME + (int) ($aLong >>> 32 ^ $aLong);
+		result = result * prime + (int) ($aLong >>> 32 ^ $aLong);
 		final long $aDouble = Double.doubleToLongBits(this.getADouble());
-		result = result * PRIME + (int) ($aDouble >>> 32 ^ $aDouble);
+		result = result * prime + (int) ($aDouble >>> 32 ^ $aDouble);
 		final Object $aString = this.getAString();
-		result = result * PRIME + ($aString == null ? 43 : $aString.hashCode());
-		result = result * PRIME + java.util.Arrays.hashCode(this.getAByteArray());
+		result = result * prime + ($aString == null ? 43 : $aString.hashCode());
+		result = result * prime + java.util.Arrays.hashCode(this.getAByteArray());
 		final Object $aLocalDate = this.getALocalDate();
-		result = result * PRIME + ($aLocalDate == null ? 43 : $aLocalDate.hashCode());
+		result = result * prime + ($aLocalDate == null ? 43 : $aLocalDate.hashCode());
 		final Object $anOffsetTime = this.getAnOffsetTime();
-		result = result * PRIME + ($anOffsetTime == null ? 43 : $anOffsetTime.hashCode());
+		result = result * prime + ($anOffsetTime == null ? 43 : $anOffsetTime.hashCode());
 		final Object $aLocalTime = this.getALocalTime();
-		result = result * PRIME + ($aLocalTime == null ? 43 : $aLocalTime.hashCode());
+		result = result * prime + ($aLocalTime == null ? 43 : $aLocalTime.hashCode());
 		final Object $aZoneDateTime = this.getAZoneDateTime();
-		result = result * PRIME + ($aZoneDateTime == null ? 43 : $aZoneDateTime.hashCode());
+		result = result * prime + ($aZoneDateTime == null ? 43 : $aZoneDateTime.hashCode());
 		final Object $aLocalDateTime = this.getALocalDateTime();
-		result = result * PRIME + ($aLocalDateTime == null ? 43 : $aLocalDateTime.hashCode());
+		result = result * prime + ($aLocalDateTime == null ? 43 : $aLocalDateTime.hashCode());
 		final Object $anIsoDuration = this.getAnIsoDuration();
-		result = result * PRIME + ($anIsoDuration == null ? 43 : $anIsoDuration.hashCode());
+		result = result * prime + ($anIsoDuration == null ? 43 : $anIsoDuration.hashCode());
 		final Object $aPoint = this.getAPoint();
-		result = result * PRIME + ($aPoint == null ? 43 : $aPoint.hashCode());
+		result = result * prime + ($aPoint == null ? 43 : $aPoint.hashCode());
 		final Object $aZeroPeriod = this.getAZeroPeriod();
-		result = result * PRIME + ($aZeroPeriod == null ? 43 : $aZeroPeriod.hashCode());
+		result = result * prime + ($aZeroPeriod == null ? 43 : $aZeroPeriod.hashCode());
 		final Object $aZeroDuration = this.getAZeroDuration();
-		result = result * PRIME + ($aZeroDuration == null ? 43 : $aZeroDuration.hashCode());
+		result = result * prime + ($aZeroDuration == null ? 43 : $aZeroDuration.hashCode());
 		return result;
 	}
 

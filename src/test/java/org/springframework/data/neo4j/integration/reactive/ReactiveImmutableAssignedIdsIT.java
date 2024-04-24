@@ -194,9 +194,8 @@ public class ReactiveImmutableAssignedIdsIT {
 		ImmutablePersonWithAssignedId person = ImmutablePersonWithAssignedId.ratedByCollection(Collections.singletonMap("Good", Collections.singletonList(rater)));
 
 		StepVerifier.create(repository.saveAll(Collections.singleton(person)))
-				.assertNext(savedPerson -> {
-					assertThat(savedPerson.ratedByCollection.values().iterator().next().get(0).id).isNotNull();
-				})
+				.assertNext(savedPerson ->
+					assertThat(savedPerson.ratedByCollection.values().iterator().next().get(0).id).isNotNull())
 				.verifyComplete();
 	}
 

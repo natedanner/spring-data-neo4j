@@ -190,9 +190,9 @@ class TypeConversionIT extends Neo4jConversionsITBase {
 		Object domainValue = ReflectionTestUtils.getField(thing, fieldName);
 
 		Function<Object, Value> conversion;
-		if (fieldName.equals("dateAsLong")) {
+		if ("dateAsLong".equals(fieldName)) {
 			conversion = o -> Values.value(((Date) o).getTime());
-		} else if (fieldName.equals("dateAsString")) {
+		} else if ("dateAsString".equals(fieldName)) {
 			conversion = o -> Values.value(new SimpleDateFormat("yyyy-MM-dd").format(o));
 		} else {
 			conversion = o -> conversionService.convert(o, Value.class);
@@ -200,7 +200,7 @@ class TypeConversionIT extends Neo4jConversionsITBase {
 		Value driverValue;
 		if (domainValue != null && Collection.class.isAssignableFrom(domainValue.getClass())) {
 			Collection<?> sourceCollection = (Collection<?>) domainValue;
-			Object[] targetCollection = (sourceCollection).stream().map(conversion).toArray();
+			Object[] targetCollection = sourceCollection.stream().map(conversion).toArray();
 			driverValue = Values.value(targetCollection);
 		} else {
 			driverValue = conversion.apply(domainValue);

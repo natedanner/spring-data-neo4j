@@ -172,7 +172,7 @@ class Neo4jConversionsIT extends Neo4jConversionsITBase {
 		Value driverValue;
 		if (t != null && Collection.class.isAssignableFrom(t.getClass())) {
 			Collection<?> sourceCollection = (Collection<?>) t;
-			Object[] targetCollection = (sourceCollection).stream()
+			Object[] targetCollection = sourceCollection.stream()
 					.map(element -> DEFAULT_CONVERSION_SERVICE.convert(element, Value.class)).toArray();
 			driverValue = Values.value(targetCollection);
 		} else {

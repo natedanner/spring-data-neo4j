@@ -170,7 +170,7 @@ final class Predicate {
 				condition = nodeDescription.getIdDescription().asIdExpression(wrapper.getNodeName()).isEqualTo(literalOf(theValue));
 			}
 		} else {
-			Expression property =  !isRootNode ? property(wrapper.getNodeName(), propertyName) : property(Constants.NAME_OF_TYPED_ROOT_NODE.apply(nodeDescription), propertyName);
+			Expression property =  isRootNode ? property(Constants.NAME_OF_TYPED_ROOT_NODE.apply(nodeDescription), propertyName) : property(wrapper.getNodeName(), propertyName);
 			Expression parameter = parameter(wrapper.getNodeName() + propertyName);
 			condition = property.isEqualTo(parameter);
 

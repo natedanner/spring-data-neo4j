@@ -162,10 +162,7 @@ class EventsPublisherIT {
 			}
 			final Object this$messageId = this.getMessageId();
 			final Object other$messageId = other.getMessageId();
-			if (this$messageId == null ? other$messageId != null : !this$messageId.equals(other$messageId)) {
-				return false;
-			}
-			return true;
+			return !(this$messageId == null ? other$messageId != null : !this$messageId.equals(other$messageId));
 		}
 
 		protected boolean canEqual(final Object other) {
@@ -173,10 +170,10 @@ class EventsPublisherIT {
 		}
 
 		public int hashCode() {
-			final int PRIME = 59;
+			final int prime = 59;
 			int result = 1;
 			final Object $messageId = this.getMessageId();
-			result = result * PRIME + ($messageId == null ? 43 : $messageId.hashCode());
+			result = result * prime + ($messageId == null ? 43 : $messageId.hashCode());
 			return result;
 		}
 

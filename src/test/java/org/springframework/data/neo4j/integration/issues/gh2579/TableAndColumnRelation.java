@@ -68,10 +68,7 @@ public class TableAndColumnRelation {
 		}
 		final Object this$columnNode = this.getColumnNode();
 		final Object other$columnNode = other.getColumnNode();
-		if (this$columnNode == null ? other$columnNode != null : !this$columnNode.equals(other$columnNode)) {
-			return false;
-		}
-		return true;
+		return !(this$columnNode == null ? other$columnNode != null : !this$columnNode.equals(other$columnNode));
 	}
 
 	protected boolean canEqual(final Object other) {
@@ -79,12 +76,12 @@ public class TableAndColumnRelation {
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
 		final Object $id = this.getId();
-		result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+		result = result * prime + ($id == null ? 43 : $id.hashCode());
 		final Object $columnNode = this.getColumnNode();
-		result = result * PRIME + ($columnNode == null ? 43 : $columnNode.hashCode());
+		result = result * prime + ($columnNode == null ? 43 : $columnNode.hashCode());
 		return result;
 	}
 

@@ -54,7 +54,7 @@ public final class LogbackCapture implements ExtensionContext.Store.CloseableRes
 	}
 
 	public List<String> getFormattedMessages() {
-		return listAppender.list.stream().map(e -> e.getFormattedMessage()).collect(Collectors.toList());
+		return listAppender.list.stream().map(ILoggingEvent::getFormattedMessage).collect(Collectors.toList());
 	}
 
 	void start() {

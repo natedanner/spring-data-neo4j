@@ -54,7 +54,7 @@ public final class Neo4jCdiExtension extends CdiRepositoryExtensionSupport {
 	/**
 	 * An annotation literal used for selecting default CDI beans.
 	 */
-	public static final AnnotationLiteral<Default> DEFAULT_BEAN = new AnnotationLiteral<Default>() {
+	public static final AnnotationLiteral<Default> DEFAULT_BEAN = new AnnotationLiteral<>() {
 		@Override public Class<? extends Annotation> annotationType() {
 			return Default.class;
 		}
@@ -62,7 +62,7 @@ public final class Neo4jCdiExtension extends CdiRepositoryExtensionSupport {
 	/**
 	 * An annotation literal used for selecting {@link Any @Any} annotated beans.
 	 */
-	public static final AnnotationLiteral<Any> ANY_BEAN = new AnnotationLiteral<Any>() {
+	public static final AnnotationLiteral<Any> ANY_BEAN = new AnnotationLiteral<>() {
 		@Override public Class<? extends Annotation> annotationType() {
 			return Any.class;
 		}
